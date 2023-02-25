@@ -16,10 +16,10 @@ const Details = ({ isLoading, setIsLoading, error, setError }) => {
       .then((res) => setCoinData(res.data))
       .catch((err) => {
         console.log(err.message);
-        setError(true);
+        setError("Oops, please try again later!");
       })
       .finally(() => setIsLoading(false));
-  }, []);
+  }, [params.id]);
 
   return (
     <>
