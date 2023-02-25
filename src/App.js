@@ -1,11 +1,8 @@
 import "./App.css";
-import Home from "./pages/Home";
-import Details from "./pages/Details";
+import Pages from "./pages/Pages";
 
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import { TbCoin } from "react-icons/tb";
-
-import { InputProvider } from "./InputContext";
 
 function App() {
   return (
@@ -17,12 +14,7 @@ function App() {
             <TbCoin />
           </Link>
         </div>
-        <InputProvider>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/details/:id" element={<Details />} />
-          </Routes>
-        </InputProvider>
+        <Pages />
       </Router>
     </div>
   );

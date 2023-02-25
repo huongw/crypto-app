@@ -1,21 +1,24 @@
-import { useContext } from "react";
-import InputContext from "../InputContext";
+import { useState } from "react";
+import { SearchBar, Header, CoinList } from "../pages";
 
-import CoinList from "../components/CoinList";
-import Header from "../components/Header";
-import SearchBar from "../components/SearchBar";
-import { CoinsProvider } from "../CoinsContext";
+const Home = ({ isLoading, setIsLoading, error, setError }) => {
+  const [input, setInput] = useState("");
 
-const Home = () => {
-  const { input, onInputChange } = useContext(InputContext);
+  const onInputChange = (e) => {
+    setInput(e.target.value);
+  };
 
   return (
     <>
       <SearchBar onInputChange={onInputChange} />
       <Header />
-      <CoinsProvider>
-        <CoinList input={input} />
-      </CoinsProvider>
+      <CoinList
+        input={input}
+        isLoading={isLoading}
+        setIsLoading={setIsLoading}
+        setError={setError}
+        error={error}
+      />
     </>
   );
 };
