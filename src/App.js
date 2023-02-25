@@ -10,7 +10,7 @@ function App() {
       <Router>
         <div className="logo">
           <Link to="/">
-            Crypto Mania
+            Crypto Hive
             <TbCoin />
           </Link>
         </div>
