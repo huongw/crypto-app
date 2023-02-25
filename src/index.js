@@ -5,8 +5,8 @@ import axios from 'axios';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-if (process.env.REACT_APP_API_KEY) {
-  axios.defaults.baseURL = process.env.REACT_APP_API_KEY;
+if (process.env.REACT_APP_BASE_URL) {
+  axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 }
 
 root.render(
