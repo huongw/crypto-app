@@ -19,35 +19,55 @@ const settings = {
     },
   },
 };
-const Trending = () => {
+
+const Trending = ({ error, setError }) => {
   const [trendingCoins, setTrendingCoins] = useState([]);
 
   useEffect(() => {
     axios
       .get("https://api.coingecko.com/api/v3/search/trending")
-      .then((res) => setTrendingCoins(res.data.coins));
+      .then((res) => setTrendingCoins(res.data.coins))
+      .catch((err) => {
+        console.log(err.message);
+        setError("Oops, recalibrating...");
+      });
   }, []);
 
   return (
-    <Splide options={{ ...settings }}>
-      {trendingCoins.map((coin) => {
-        const coinItem = coin.item;
-        return (
-          <SplideSlide key={coinItem.id}>
-            <p>
-              {coinItem.name} <span>({coinItem.symbol})</span>
-            </p>
+    <>
+      {error && (
+        <p className="error">
+          <strong>{error}</strong>
+        </p>
+      )}
+      {!error && (
+        <Splide options={{ ...settings }}>
+          {trendingCoins.map((coin) => {
+            const coinItem = coin.item;
 
-            <div className="img-wrapper trending">
-              <img src={coinItem.large} alt={coinItem.name} />
-            </div>
-            <p className="coin_rank trending">
-              Mkt Cap Rank #{coinItem.market_cap_rank}
-            </p>
-          </SplideSlide>
-        );
-      })}
-    </Splide>
+            return (
+              <SplideSlide key={coinItem?.id}>
+                <p>
+                  {coinItem?.name}{" "}
+                  <span>
+                    {"["}
+                    {coinItem?.symbol}
+                    {"]"}
+                  </span>
+                </p>
+
+                <div className="img-wrapper trending">
+                  <img src={coinItem?.large} alt={coinItem?.name} />
+                </div>
+                <p className="coin_rank trending">
+                  Rank #{coinItem?.market_cap_rank}
+                </p>
+              </SplideSlide>
+            );
+          })}
+        </Splide>
+      )}
+    </>
   );
 };
 

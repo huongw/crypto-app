@@ -7,12 +7,16 @@ import { Loader } from "../index";
 import "./Details.css";
 import { motion } from "framer-motion";
 import Trending from "../../components/Trending/Trending";
-import CoinChart from "../../components/CoinChart/CoinChart";
+import Table from "../../components/Table/Table";
+import Stats from "../../components/Stats/Stats";
 
 const Details = ({ isLoading, setIsLoading, error, setError }) => {
   const [coinData, setCoinData] = useState({});
   const params = useParams();
   let navigate = useNavigate();
+
+  const options = { year: "numeric", month: "long", day: "numeric" };
+  const date = new Date(coinData.last_updated?.split("T")[0]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -46,6 +50,9 @@ const Details = ({ isLoading, setIsLoading, error, setError }) => {
             <BiArrowBack />
             Back
           </button>
+          <p className="last_updated">
+            Last updated: {date.toLocaleDateString("en-US", options)}
+          </p>
           <h1 className="details details_name">{coinData.name}</h1>
           <div className="details coin_info">
             <p className="coin_rank">Rank #{coinData.market_cap_rank}</p>
@@ -56,31 +63,36 @@ const Details = ({ isLoading, setIsLoading, error, setError }) => {
                 </div>
                 <p className="coin_name">{coinData.name}</p>
                 <p className="coin_symbol">
-                  ({coinData.symbol?.toUpperCase()}/USD)
+                  {"["}
+                  {coinData.symbol?.toUpperCase()}/USD{"]"}
                 </p>
               </div>
-              <p className="coin_price">
-                ${coinData.market_data?.current_price?.usd.toLocaleString()}
-              </p>
+              <div className="coin_price-wrapper">
+                <span className="coin_price-title">{coinData.name} Price</span>
+                <p className="coin_price">
+                  ${coinData.market_data?.current_price?.usd?.toLocaleString()}
+                </p>
+              </div>
             </div>
           </div>
-          <CoinChart />
+          <Stats coinData={coinData} />
+          <Table coinData={coinData} />
           <div className="details details_desc-wrapper">
-            <h2>About {coinData.name}</h2>
+            <h2>What is {coinData.name}?</h2>
             <p
               dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(
-                  coinData.description && coinData.description.en
-                ),
+                __html: DOMPurify.sanitize(coinData.description?.en),
               }}
             ></p>
           </div>
           <div className="details trending">
             <h3>
-              Top 7 trending coins searched by users{" "}
-              <span className="grey-color">(Last 24h)</span>
+              Top trending coins searched by users{" "}
+              <span className="grey-color">
+                {"("}Last 24h{")"}
+              </span>
             </h3>
-            <Trending />
+            <Trending error={error} setError={setError}/>
           </div>
         </motion.div>
       )}

@@ -8,6 +8,7 @@ body {
   background-color: #202020;
   color: #fff;
   font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
 }
 
 a {
@@ -16,7 +17,7 @@ a {
 }
 
 .container {
-  width: 95vw;
+  width: 100vw;
   max-width: 1300px;
   margin: auto;
 }
@@ -28,7 +29,7 @@ a {
   justify-content: center;
   gap: 0.2em;
   font-size: 2em;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   pointer-events: none;
 }
 
@@ -114,11 +115,11 @@ img {
 }
 
 .percentage {
-  color: rgb(0, 255, 0);
+  color: #4eaf0a;
 }
 
 .negative {
-  color: rgb(255, 0, 0);
+  color: #ff1900;
 }
 
 .error {
@@ -131,7 +132,7 @@ img {
   }
 }
 
-@media only screen and (max-width: 405px) {
+@media only screen and (max-width: 430px) {
   .logo {
     font-size: 1.2em;
   }

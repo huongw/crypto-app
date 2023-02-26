@@ -1,0 +1,28 @@
+table.details {
+  width: 100%;
+  text-align: center;
+}
+
+thead {
+  background: #343131;
+}
+
+th,
+td {
+  padding: 0.5em;
+}
+
+.na {
+  color: grey;
+}
+
+@media only screen and (max-width: 400px) {
+  .details.table {
+    padding: 3px;
+  }
+
+  th,
+  td {
+    padding: 3px 0;
+  }
+}

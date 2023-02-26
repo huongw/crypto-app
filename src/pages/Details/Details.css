@@ -12,11 +12,11 @@
 
 .details_name {
   text-align: center;
-  margin: 0.5em 0 0;
+  margin: 0.1em 0 0;
 }
 
 h2 {
-  margin: 0.5em 0;
+  margin: 0 0 0.5em;
 }
 
 .coin_info {
@@ -29,8 +29,6 @@ h2 {
 .coin-wrapper {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5em;
 }
 
 .details_desc-wrapper {
@@ -59,6 +57,10 @@ h2 {
   font-size: 2em;
 }
 
+.coin_price-title {
+  color: grey;
+}
+
 .wrapper {
   display: flex;
   justify-content: center;
@@ -78,9 +80,25 @@ button {
   text-decoration: underline;
 }
 
+.last_updated {
+  color: grey;
+  margin-top: 1em;
+  font-size: 0.9em;
+}
+
 @media only screen and (max-width: 800px) {
   .coin_info,
   .details {
     padding: 1em;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .coin-wrapper {
+    flex-direction: column;
+  }
+
+  .wrapper {
+    justify-content: flex-start;
   }
 }

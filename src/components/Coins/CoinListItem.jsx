@@ -21,10 +21,10 @@ const CoinListItem = ({
         </div>
         <p>{name}</p>
       </div>
-      <p>$ {price.toLocaleString()}</p>
-      <p className={percentClasses}>{percentage.toFixed(2)} %</p>
-      <p className="hide-mobile">$ {volume.toLocaleString()}</p>
-      <p className="hide-mobile">$ {mktcap.toLocaleString()}</p>
+      <p>$ {price?.toLocaleString()}</p>
+      <p className={percentClasses}>{percentage?.toFixed(2)} %</p>
+      <p className="hide-mobile">$ {volume?.toLocaleString()}</p>
+      <p className="hide-mobile">$ {mktcap?.toLocaleString()}</p>
     </div>
   );
 };

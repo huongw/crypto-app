@@ -2,6 +2,7 @@
 h3 {
   text-transform: capitalize;
   text-align: center;
+  padding: 0 0.5em;
 }
 
 .grey-color {
@@ -16,6 +17,8 @@ h3 {
 
 .details.trending {
   padding: 1em 0;
+  min-height: 20vh;
+
 }
 
 .img-wrapper.trending {
@@ -23,10 +26,6 @@ h3 {
 }
 
 /* Carousel */
-#splide02 {
-  min-height: 20vh;
-}
-
 .splide__arrow {
   background: #000 !important;
   border-radius: 0 !important;
