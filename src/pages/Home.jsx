@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SearchBar, Header, CoinList } from "../pages";
+import { SearchBar, Header, Coins } from "../pages";
 
 const Home = ({ isLoading, setIsLoading, error, setError }) => {
   const [input, setInput] = useState("");
@@ -12,7 +12,7 @@ const Home = ({ isLoading, setIsLoading, error, setError }) => {
     <>
       <SearchBar onInputChange={onInputChange} />
       <Header />
-      <CoinList
+      <Coins
         input={input}
         isLoading={isLoading}
         setIsLoading={setIsLoading}

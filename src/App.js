@@ -1,16 +1,16 @@
 import "./App.css";
 import Pages from "./pages/Pages";
 
-import { BrowserRouter as Router, Link } from "react-router-dom";
-import { TbCoin } from "react-icons/tb";
+import { BrowserRouter as Router } from "react-router-dom";
+import { RiCoinsLine } from "react-icons/ri";
 
 function App() {
   return (
     <div className="container">
       <Router>
         <div className="logo">
-          <TbCoin />
-          <Link to="/">Crypto <span className="logo-color">Hive</span></Link>
+          <RiCoinsLine />
+          <h1>Crypto <span className="logo-color">Hive</span></h1>
         </div>
         <Pages />
       </Router>

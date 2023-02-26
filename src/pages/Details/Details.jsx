@@ -5,6 +5,7 @@ import axios from "axios";
 import DOMPurify from "dompurify";
 import { Loader } from "../index";
 import "./Details.css";
+import { motion } from "framer-motion";
 
 const Details = ({ isLoading, setIsLoading, error, setError }) => {
   const [coinData, setCoinData] = useState({});
@@ -32,7 +33,13 @@ const Details = ({ isLoading, setIsLoading, error, setError }) => {
         </p>
       )}
       {!isLoading && !error && (
-        <div className="details_container">
+        <motion.div
+          className="details_container"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           <button onClick={() => navigate(-1)}>
             <BiArrowBack />
             Back
@@ -63,7 +70,7 @@ const Details = ({ isLoading, setIsLoading, error, setError }) => {
               }}
             ></p>
           </div>
-        </div>
+        </motion.div>
       )}
     </>
   );

@@ -1,3 +1,4 @@
+export { default as Coins } from "../components/Coins";
 export { default as CoinList } from "../components/CoinList";
 export { default as CoinListItem } from "../components/CoinListItem";
 export { default as Header } from "../components/Header";
