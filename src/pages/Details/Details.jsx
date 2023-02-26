@@ -49,14 +49,16 @@ const Details = ({ isLoading, setIsLoading, error, setError }) => {
             <p className="coin_rank">Rank #{coinData.market_cap_rank}</p>
             <div className="coin-wrapper">
               <div className="wrapper">
-                <img src={coinData.image?.small} alt="" />
+                <div className="img-wrapper">
+                  <img src={coinData.image?.small} alt={coinData.name} />
+                </div>
                 <p className="coin_name">{coinData.name}</p>
                 <p className="coin_symbol">
                   ({coinData.symbol?.toUpperCase()}/USD)
                 </p>
               </div>
               <p className="coin_price">
-                $ {coinData.market_data?.current_price?.usd.toLocaleString()}
+                ${coinData.market_data?.current_price?.usd.toLocaleString()}
               </p>
             </div>
           </div>

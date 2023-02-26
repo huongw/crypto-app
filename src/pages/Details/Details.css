@@ -12,7 +12,7 @@
 
 .details_name {
   text-align: center;
-  margin: 1em 0 0;
+  margin: .5em 0 0;
 }
 
 h2 {
@@ -30,12 +30,11 @@ h2 {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: .5em;
+  gap: 0.5em;
 }
 
 .details_desc-wrapper {
-  text-align: justify;
-  text-justify: inter-word;
+  white-space: pre-wrap;
 }
 
 .coin_rank {
@@ -52,13 +51,16 @@ h2 {
   );
 }
 
+.coin_name {
+  margin: 0 0.2em 0 1em;
+}
+
 .coin_price {
   font-size: 2em;
 }
 
 .wrapper {
   display: flex;
-  gap: 1em;
   justify-content: center;
   align-items: center;
 }
