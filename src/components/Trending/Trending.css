@@ -1,0 +1,59 @@
+/* Trending */
+h3 {
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.grey-color {
+  color: rgb(99, 98, 98);
+}
+
+.coin_rank.trending {
+  font-size: 0.8em;
+  background: none;
+  color: rgb(255, 0, 234);
+}
+
+.details.trending {
+  padding: 1em 0;
+}
+
+.img-wrapper.trending {
+  max-width: 80px;
+}
+
+/* Carousel */
+#splide02 {
+  min-height: 20vh;
+}
+
+.splide__arrow {
+  background: #000 !important;
+  border-radius: 0 !important;
+  height: 3em !important;
+}
+
+.splide__track {
+  cursor: pointer;
+  margin-top: 2em !important;
+}
+
+.splide__arrow svg {
+  fill: #fff !important;
+}
+
+.splide__arrow--prev {
+  left: 0 !important;
+}
+.splide__arrow--next {
+  right: 0 !important;
+}
+
+.splide__slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  text-align: center;
+}

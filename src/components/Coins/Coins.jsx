@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CoinList, Loader } from "../pages";
+import { CoinList, Loader } from "../../pages";
 import { useState, useEffect } from "react";
 import axios from "axios";
 

@@ -6,6 +6,8 @@ import DOMPurify from "dompurify";
 import { Loader } from "../index";
 import "./Details.css";
 import { motion } from "framer-motion";
+import Trending from "../../components/Trending/Trending";
+import CoinChart from "../../components/CoinChart/CoinChart";
 
 const Details = ({ isLoading, setIsLoading, error, setError }) => {
   const [coinData, setCoinData] = useState({});
@@ -62,6 +64,7 @@ const Details = ({ isLoading, setIsLoading, error, setError }) => {
               </p>
             </div>
           </div>
+          <CoinChart />
           <div className="details details_desc-wrapper">
             <h2>About {coinData.name}</h2>
             <p
@@ -71,6 +74,13 @@ const Details = ({ isLoading, setIsLoading, error, setError }) => {
                 ),
               }}
             ></p>
+          </div>
+          <div className="details trending">
+            <h3>
+              Top 7 trending coins searched by users{" "}
+              <span className="grey-color">(Last 24h)</span>
+            </h3>
+            <Trending />
           </div>
         </motion.div>
       )}
