@@ -7,7 +7,7 @@
 body {
   background-color: #202020;
   color: #fff;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 a {
@@ -17,13 +17,26 @@ a {
 
 .container {
   width: 95vw;
-  max-width: 1500px;
+  max-width: 1300px;
   margin: auto;
 }
 
 .logo {
-  text-align: center;
-  padding: 2em 0;
+  padding: 1em 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2em;
+  font-size: 2em;
+  font-family: 'Roboto', sans-serif;
+}
+
+.logo-color {
+  color: rgb(122, 14, 148);
+}
+
+.logo svg {
+  font-size: 1.5em;
 }
 
 .header,
@@ -76,15 +89,11 @@ a {
 }
 
 .img-wrapper {
-  max-width: 50px;
-  position: absolute;
-  left: 15px;
-  top: 50%;
-  transform: translateY(-50%);
+  max-width: 40px;
 }
 
 img {
-  width: 80%;
+  width: 100%;
 }
 
 .coin-row {
@@ -96,10 +105,27 @@ img {
   transform: scale(1.02);
 }
 
+.coin-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
 .percentage {
   color: rgb(0, 255, 0);
 }
 
 .negative {
   color: rgb(255, 0, 0);
+}
+
+.error {
+  text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+  .hide-mobile {
+    display: none;
+  }
 }

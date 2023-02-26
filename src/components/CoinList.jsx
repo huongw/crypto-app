@@ -29,7 +29,7 @@ const CoinList = ({ input, isLoading, setIsLoading, error, setError }) => {
     <>
       {isLoading && <Loader />}
       {error && (
-        <p>
+        <p className="error">
           <strong>{error}</strong>
         </p>
       )}

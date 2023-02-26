@@ -9,10 +9,8 @@ function App() {
     <div className="container">
       <Router>
         <div className="logo">
-          <Link to="/">
-            Crypto Hive
-            <TbCoin />
-          </Link>
+          <TbCoin />
+          <Link to="/">Crypto <span className="logo-color">Hive</span></Link>
         </div>
         <Pages />
       </Router>
