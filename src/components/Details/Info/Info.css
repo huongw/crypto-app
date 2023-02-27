@@ -1,7 +1,7 @@
 .coin_info {
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 1em;
   padding: 1em 2em;
 }
 
@@ -35,6 +35,7 @@
 
 .coin_price {
   font-size: 2em;
+  line-height: 1em;
 }
 
 .coin_price-title {

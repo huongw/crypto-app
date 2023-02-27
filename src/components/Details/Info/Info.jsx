@@ -22,6 +22,7 @@ const Info = ({ coin }) => {
           </p>
         </div>
       </div>
+      {/* <hr/> */}
     </div>
   );
 };
