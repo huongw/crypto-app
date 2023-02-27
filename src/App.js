@@ -10,7 +10,7 @@ function App() {
       <Router>
         <div className="logo">
           <RiCoinsLine />
-          <h1>Crypto <span className="logo-color">Hive</span></h1>
+          <h1>Crypto<span className="logo-color">Hive</span></h1>
         </div>
         <Pages />
       </Router>
