@@ -41,7 +41,9 @@ const Stats = ({ coin }) => {
                 {coin.market_data?.atl_change_percentage?.usd?.toFixed(2)} %
               </span>
             </p>
-            <p className="coin_date stats">{date.toLocaleDateString("en-US", options)}</p>
+            <p className="coin_date stats">
+              {date.toLocaleDateString("en-US", options)}
+            </p>
           </div>
         </div>
         <hr />
@@ -52,7 +54,9 @@ const Stats = ({ coin }) => {
             <span className={percentClasses2}>
               {coin.market_data?.ath_change_percentage?.usd?.toFixed(2)} %
             </span>
-            <p className="coin_date stats">{date2.toLocaleDateString("en-US", options)}</p>
+          </p>
+          <p className="coin_date stats">
+            {date2.toLocaleDateString("en-US", options)}
           </p>
         </div>
       </div>
