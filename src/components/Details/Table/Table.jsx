@@ -40,7 +40,7 @@ const Table = ({ coin }) => {
         <tr>
           <td className={percentClasses}>
             {coin.market_data?.price_change_percentage_1h_in_currency?.usd?.toFixed(
-              2
+              1
             )}{" "}
             {coin.market_data?.price_change_percentage_1h_in_currency?.usd
               ? "%"
@@ -48,7 +48,7 @@ const Table = ({ coin }) => {
           </td>
           <td className={percentClasses2}>
             {coin.market_data?.price_change_percentage_24h_in_currency?.usd?.toFixed(
-              2
+              1
             )}{" "}
             {coin.market_data?.price_change_percentage_24h_in_currency?.usd
               ? "%"
@@ -56,7 +56,7 @@ const Table = ({ coin }) => {
           </td>
           <td className={percentClasses3}>
             {coin.market_data?.price_change_percentage_7d_in_currency?.usd?.toFixed(
-              2
+              1
             )}{" "}
             {coin.market_data?.price_change_percentage_7d_in_currency?.usd
               ? "%"
@@ -64,7 +64,7 @@ const Table = ({ coin }) => {
           </td>
           <td className={percentClasses4}>
             {coin.market_data?.price_change_percentage_14d_in_currency?.usd?.toFixed(
-              2
+              1
             )}{" "}
             {coin.market_data?.price_change_percentage_14d_in_currency?.usd
               ? "%"
@@ -72,7 +72,7 @@ const Table = ({ coin }) => {
           </td>
           <td className={percentClasses5}>
             {coin.market_data?.price_change_percentage_30d_in_currency?.usd?.toFixed(
-              2
+              1
             )}{" "}
             {coin.market_data?.price_change_percentage_30d_in_currency?.usd
               ? "%"
@@ -80,7 +80,7 @@ const Table = ({ coin }) => {
           </td>
           <td className={percentClasses6}>
             {coin.market_data?.price_change_percentage_1y_in_currency?.usd?.toFixed(
-              2
+              1
             )}{" "}
             {coin.market_data?.price_change_percentage_1y_in_currency?.usd
               ? "%"

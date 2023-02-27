@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { RxTriangleUp, RxTriangleDown } from "react-icons/rx";
 
 const CoinListItem = ({
   id,
@@ -9,7 +10,7 @@ const CoinListItem = ({
   volume,
   mktcap,
 }) => {
-  const percentClasses = classNames("percentage", {
+  const percentClasses = classNames("percentage home", {
     negative: percentage < 0,
   });
 
@@ -22,7 +23,10 @@ const CoinListItem = ({
         <p>{name}</p>
       </div>
       <p>$ {price?.toLocaleString()}</p>
-      <p className={percentClasses}>{percentage?.toFixed(2)} %</p>
+      <p className={percentClasses}>
+        {percentage < 0 ? <RxTriangleDown /> : <RxTriangleUp />}
+        {percentage?.toFixed(1)} %
+      </p>
       <p className="hide-mobile">$ {volume?.toLocaleString()}</p>
       <p className="hide-mobile">$ {mktcap?.toLocaleString()}</p>
     </div>

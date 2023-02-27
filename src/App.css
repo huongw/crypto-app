@@ -119,6 +119,12 @@ img {
   color: #4eaf0a;
 }
 
+.home.percentage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .negative {
   color: #ff1900;
 }
@@ -138,6 +144,15 @@ img {
   .coin-row {
     padding: 1em 0;
   }
+
+  .header {
+    margin: 1em 0 0;
+  }
+
+  .coin-row {
+    margin: 0.8em auto;
+  }
+
   .logo {
     font-size: 1.2em;
   }

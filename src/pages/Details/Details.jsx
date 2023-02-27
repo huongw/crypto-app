@@ -19,7 +19,7 @@ const Details = ({ isLoading, setIsLoading, error, setError }) => {
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get(`https://api.coingecko.com/api/v3/coins/${params.id}/`)
+      .get(`https://api.coingecko.com/api/v3/coins/${params.id}?tickers=false&community_data=false&developer_data=false&sparkline=false`)
       .then((res) => setCoin(res.data))
       .catch((err) => {
         console.log(err.message);

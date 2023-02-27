@@ -1,4 +1,5 @@
 import "./Info.css";
+import Chart from "../Chart/Chart";
 
 const Info = ({ coin }) => {
   return (
@@ -9,7 +10,6 @@ const Info = ({ coin }) => {
           <div className="img-wrapper">
             <img src={coin.image?.small} alt={coin.name} />
           </div>
-          <p className="coin_name">{coin.name}</p>
           <p className="coin_symbol">
             {"["}
             {coin.symbol?.toUpperCase()}/USD{"]"}
@@ -22,7 +22,8 @@ const Info = ({ coin }) => {
           </p>
         </div>
       </div>
-      {/* <hr/> */}
+      <hr />
+      <Chart coin={coin}/>
     </div>
   );
 };

@@ -12,6 +12,16 @@ const Stats = ({ coin }) => {
   const percentClasses2 = classNames("percentage atp", {
     negative: coin.market_data?.ath_change_percentage?.usd < 0,
   });
+
+  const formattedNumber = new Intl.NumberFormat("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(coin.market_data?.atl_change_percentage?.usd);
+  const formattedNumber2 = new Intl.NumberFormat("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(coin.market_data?.ath_change_percentage?.usd);
+
   return (
     <div className="details">
       <h2>{coin.symbol?.toUpperCase()} Price Statistics</h2>
@@ -33,13 +43,24 @@ const Stats = ({ coin }) => {
         </div>
         <hr />
         <div className="stats stats_atlh">
+          <h4>All-Time High</h4>
+          <div>
+            <p>
+              $ {coin.market_data?.ath?.usd?.toLocaleString()}{" "}
+              <span className={percentClasses2}>{formattedNumber2} %</span>
+            </p>
+            <p className="coin_date stats">
+              {date2.toLocaleDateString("en-US", options)}
+            </p>
+          </div>
+        </div>
+        <hr />
+        <div className="stats stats_atlh">
           <h4>All-Time Low</h4>
           <div>
             <p>
               $ {coin.market_data?.atl?.usd?.toLocaleString()}{" "}
-              <span className={percentClasses}>
-                {coin.market_data?.atl_change_percentage?.usd?.toFixed(2)} %
-              </span>
+              <span className={percentClasses}>{formattedNumber} %</span>
             </p>
             <p className="coin_date stats">
               {date.toLocaleDateString("en-US", options)}
@@ -47,20 +68,6 @@ const Stats = ({ coin }) => {
           </div>
         </div>
         <hr />
-        <div className="stats stats_atlh">
-          <h4>All-Time High</h4>
-          <div>
-            <p>
-              $ {coin.market_data?.ath?.usd?.toLocaleString()}{" "}
-              <span className={percentClasses2}>
-                {coin.market_data?.ath_change_percentage?.usd?.toFixed(2)} %
-              </span>
-            </p>
-            <p className="coin_date stats">
-              {date2.toLocaleDateString("en-US", options)}
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   );
