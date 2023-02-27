@@ -1,0 +1,33 @@
+.stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .5em;
+  margin: .5em 0;
+  flex-wrap: wrap;
+}
+
+.details .percentage.atp {
+  font-size: .8em;
+}
+
+.stats.coin_date {
+  margin: 0;
+  text-align: right;
+}
+
+@media only screen and (max-width: 400px) {
+  .stats {
+    font-size: .9em;
+  }
+  
+  .details .percentage.atp {
+    font-size: .7em;
+  }
+  
+  .stats.coin_date {
+    margin: 0;
+    text-align: right;
+    font-size: .8em;
+  }
+}

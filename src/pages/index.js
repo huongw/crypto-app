@@ -6,3 +6,6 @@ export { default as Details } from "./Details/Details";
 export { default as Home } from "./Home";
 export { default as SearchBar } from "../components/SearchBar";
 export { default as Loader } from "../components/Loader/Loader";
+export { default as Stats } from "../components/Details/Stats/Stats";
+export { default as Trending } from "../components/Details/Trending/Trending";
+export { default as Table } from "../components/Details/Table/Table";

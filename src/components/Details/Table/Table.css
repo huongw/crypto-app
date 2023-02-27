@@ -25,4 +25,8 @@ td {
   td {
     padding: 3px 0;
   }
+
+  .details .percentage {
+    font-size: 0.8em;
+  }
 }

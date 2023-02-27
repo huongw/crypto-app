@@ -1,6 +1,5 @@
 .details_container {
   max-width: 1000px;
-  width: 95%;
   margin: auto;
 }
 
@@ -19,54 +18,6 @@ h2 {
   margin: 0 0 0.5em;
 }
 
-.coin_info {
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-  padding: 1em 3em;
-}
-
-.coin-wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-
-.details_desc-wrapper {
-  white-space: pre-wrap;
-}
-
-.coin_rank {
-  width: max-content;
-  padding: 0.5em 1em;
-  border-radius: 15px;
-  background: rgb(122, 14, 148);
-  background: linear-gradient(
-    99deg,
-    rgba(122, 14, 148, 1) 0%,
-    rgba(111, 22, 156, 1) 100%,
-    rgba(157, 112, 225, 1) 100%,
-    rgba(68, 81, 213, 1) 100%
-  );
-}
-
-.coin_name {
-  margin: 0 0.2em 0 1em;
-}
-
-.coin_price {
-  font-size: 2em;
-}
-
-.coin_price-title {
-  color: grey;
-}
-
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 button {
   cursor: pointer;
   color: #fff;
@@ -80,25 +31,15 @@ button {
   text-decoration: underline;
 }
 
-.last_updated {
+.coin_date {
   color: grey;
   margin-top: 1em;
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 @media only screen and (max-width: 800px) {
   .coin_info,
   .details {
     padding: 1em;
-  }
-}
-
-@media only screen and (max-width: 430px) {
-  .coin-wrapper {
-    flex-direction: column;
-  }
-
-  .wrapper {
-    justify-content: flex-start;
   }
 }
