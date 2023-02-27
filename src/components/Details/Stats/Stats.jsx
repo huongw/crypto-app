@@ -2,7 +2,6 @@ import "./Stats.css";
 import classNames from "classnames";
 
 const Stats = ({ coin }) => {
-  console.log(coin.market_data?.atl_date?.usd);
   const options = { year: "numeric", month: "long", day: "numeric" };
   const date = new Date(coin.market_data?.atl_date?.usd?.split("T")[0]);
   const date2 = new Date(coin.market_data?.ath_date?.usd?.split("T")[0]);
