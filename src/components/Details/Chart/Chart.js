@@ -3,7 +3,6 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
-import "./Chart.css";
 
 const Chart = ({ coin }) => {
   const [chartData, setChartData] = useState([]);
@@ -70,7 +69,7 @@ const Chart = ({ coin }) => {
   };
 
   return (
-    <div id="chart">
+    <div>
       <h2>{coin.name} Price Chart</h2>
       <Line id="canvas" data={data} options={options} />
     </div>
