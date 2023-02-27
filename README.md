@@ -10,7 +10,6 @@ Welcome to Crypto Hive! Crypto Hive provides you with real-time data and statist
 
 - Price Data: Get up-to-the-minute prices for all major cryptocurrencies, including Bitcoin, Ethereum, and Litecoin.
 - Market Capitalization: Stay informed on the overall market capitalization of cryptocurrencies and see how they rank against each other.
-- Price Data: Get up-to-the-minute prices for all major cryptocurrencies, including Bitcoin, Ethereum, and Litecoin.
 - Trading Volume: Check out the daily trading volume for each cryptocurrency and see which ones are the most actively traded.
 
 ## Teck Stacks
