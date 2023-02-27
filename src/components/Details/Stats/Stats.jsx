@@ -49,15 +49,17 @@ const Stats = ({ coin }) => {
         <hr />
         <div className="stats stats_atlh">
           <h4>All-Time High</h4>
-          <p>
-            $ {coin.market_data?.ath?.usd?.toLocaleString()}{" "}
-            <span className={percentClasses2}>
-              {coin.market_data?.ath_change_percentage?.usd?.toFixed(2)} %
-            </span>
-          </p>
-          <p className="coin_date stats">
-            {date2.toLocaleDateString("en-US", options)}
-          </p>
+          <div>
+            <p>
+              $ {coin.market_data?.ath?.usd?.toLocaleString()}{" "}
+              <span className={percentClasses2}>
+                {coin.market_data?.ath_change_percentage?.usd?.toFixed(2)} %
+              </span>
+            </p>
+            <p className="coin_date stats">
+              {date2.toLocaleDateString("en-US", options)}
+            </p>
+          </div>
         </div>
       </div>
     </div>
