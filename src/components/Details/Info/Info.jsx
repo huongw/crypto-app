@@ -18,7 +18,7 @@ const Info = ({ coin }) => {
         <div className="coin_price-wrapper">
           <span className="coin_price-title">{coin.name} Price</span>
           <p className="coin_price">
-            ${coin.market_data?.current_price?.usd?.toLocaleString()}
+            ${coin.market_data?.current_price?.usd?.toFixed(2).toLocaleString()}
           </p>
         </div>
       </div>
