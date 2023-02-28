@@ -9,7 +9,6 @@ const Chart = ({ coin }) => {
   const [chartData, setChartData] = useState([]);
   const params = useParams();
   const [day, setDay] = useState(7);
-  const [active, setActive] = useState();
 
   useEffect(() => {
     axios
