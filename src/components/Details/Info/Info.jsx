@@ -21,7 +21,7 @@ const Info = ({ coin }) => {
           </p>
         </div>
         <div className="coin_price-wrapper">
-          <span className="coin_price-title">{coin.name} Price</span>
+          <span className="coin_price-title">Current Price</span>
           <p className="coin_price">$ {formattedNumber}</p>
         </div>
       </div>
