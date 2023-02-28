@@ -2,13 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: .5em;
-  margin: .5em 0;
+  gap: 0.5em;
+  margin: 0.5em 0;
   flex-wrap: wrap;
 }
 
 .details .percentage.atp {
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 .stats.coin_date {
@@ -16,18 +16,57 @@
   text-align: right;
 }
 
+/* Info */
+.hover {
+  margin-left: 5px;
+  position: relative;
+}
+
+.info {
+  opacity: 0;
+  visibility: hidden;
+  font-size: 0.8em;
+  padding: 1em;
+  position: absolute;
+  background: #fefefe;
+  color: #000;
+  width: 300px;
+  bottom: 20px;
+  left: 50%;
+  transition: 0.3s linear;
+  white-space: pre-line;
+  border-radius: 8px;
+}
+
+.hover:hover > .info {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media only screen and (max-width: 530px) {
+  .hover {
+    position: static;
+  }
+  .stats_mc {
+    position: relative;
+  }
+  .info {
+    left: -15px;
+  }
+}
+
 @media only screen and (max-width: 400px) {
   .stats {
-    font-size: .9em;
+    font-size: 0.9em;
   }
-  
+
   .details .percentage.atp {
-    font-size: .7em;
+    font-size: 0.7em;
   }
-  
+
   .stats.coin_date {
     margin: 0;
     text-align: right;
-    font-size: .8em;
+    font-size: 0.8em;
   }
 }

@@ -1,5 +1,6 @@
 import "./Stats.css";
 import formatNumber from "../../../helpers/formatNumber";
+import Hover from "./Hover";
 
 const Stats = ({ coin }) => {
   function formatDate(timestamp) {
@@ -8,6 +9,8 @@ const Stats = ({ coin }) => {
 
     return date.toLocaleDateString("en-US", options);
   }
+
+  // console.log(coin);
 
   return (
     <div className="details">
@@ -20,13 +23,50 @@ const Stats = ({ coin }) => {
         </div>
         <hr />
         <div className="stats stats_mc">
-          <h4>Market Cap</h4>${" "}
-          {coin.market_data?.market_cap?.usd?.toLocaleString()}
+          <h4>
+            Market Cap
+            <Hover
+              text={`Market Cap = Current Price x Circulating Supply
+              
+              Refers to the total market value of a cryptocurrency's circulating supply. 
+              It is similar to the stock market's measurement of multiplying price per share by shares readily available in the market (not held & locked by insiders, governments)`}
+            />
+          </h4>
+          $ {coin.market_data?.market_cap?.usd?.toLocaleString()}
         </div>
         <hr />
         <div className="stats stats_mc">
-          <h4>Total Volume</h4>${" "}
-          {coin.market_data?.total_volume?.usd?.toLocaleString()}
+          <h4>
+            Circulating Supply
+            <Hover
+              text={`The amount of coins that are circulating in the market and are tradeable by the public. It is comparable to looking at shares readily available in the market (not held & locked by insiders, governments).`}
+            />
+          </h4>
+          $ {coin.market_data?.circulating_supply?.toLocaleString()}
+        </div>
+        <hr />
+        <div className="stats stats_mc">
+          <h4>
+            Total Supply
+            <Hover
+              text={`The amount of coins that have already been created, minus any coins that have been burned (removed from circulation). It is comparable to outstanding shares in the stock market.
+
+              Total Supply = Onchain supply - burned tokens`}
+            />
+          </h4>
+          $ {coin.market_data?.total_supply?.toLocaleString()}
+        </div>
+        <hr />
+        <div className="stats stats_mc">
+          <h4>
+            Max Supply
+            <Hover
+              text={`The maximum number of coins coded to exist in the lifetime of the cryptocurrency. It is comparable to the maximum number of issuable shares in the stock market.
+
+              Max Supply = Theoretical maximum as coded`}
+            />
+          </h4>
+          $ {coin.market_data?.max_supply?.toLocaleString()}
         </div>
         <hr />
         <div className="stats stats_atlh">
