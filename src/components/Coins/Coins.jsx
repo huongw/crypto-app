@@ -18,7 +18,7 @@ const Coins = ({ input, isLoading, setIsLoading, error, setError }) => {
       })
       .catch((err) => {
         console.log(err.message);
-        setError("Oops, please try again later!");
+        setError("Oops! Too many requests, please try again later.");
       })
       .finally(() => setIsLoading(false));
   }, []);

@@ -2,7 +2,11 @@ import "./Info.css";
 import Chart from "../Chart/Chart";
 
 const Info = ({ coin }) => {
-  console.log(coin);
+  const formattedNumber = new Intl.NumberFormat("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(coin.market_data?.current_price?.usd);
+
   return (
     <div className="details coin_info">
       <p className="coin_rank">Rank #{coin.market_cap_rank}</p>
@@ -18,9 +22,7 @@ const Info = ({ coin }) => {
         </div>
         <div className="coin_price-wrapper">
           <span className="coin_price-title">{coin.name} Price</span>
-          <p className="coin_price">
-            ${coin.market_data?.current_price?.usd?.toFixed(2).toLocaleString()}
-          </p>
+          <p className="coin_price">$ {formattedNumber}</p>
         </div>
       </div>
       <hr />

@@ -29,7 +29,7 @@ const Trending = ({ error, setError }) => {
       .then((res) => setTrendingCoins(res.data.coins))
       .catch((err) => {
         console.log(err.message);
-        setError("Oops, recalibrating...");
+        setError("Oops! Too many requests, please try again later.");
       });
   }, []);
 

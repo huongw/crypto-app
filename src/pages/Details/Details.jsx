@@ -23,7 +23,7 @@ const Details = ({ isLoading, setIsLoading, error, setError }) => {
       .then((res) => setCoin(res.data))
       .catch((err) => {
         console.log(err.message);
-        setError("Oops, please try again later!");
+        setError("Oops! Too many requests, please try again later.");
       })
       .finally(() => setIsLoading(false));
   }, [params.id]);
