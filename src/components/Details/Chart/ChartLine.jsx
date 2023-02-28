@@ -16,7 +16,7 @@ const ChartLine = ({ chartData, day }) => {
     labels: labels,
     datasets: [
       {
-        label: `Prices in USD (Last ${day} days)`,
+        label: `Currency in USD (Last ${day} days)`,
         data: chartData.map((data) => data[1].toFixed(2)),
         backgroundColor: gradient,
         borderColor: "rgba(0,210,255,1)",
