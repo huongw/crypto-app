@@ -1,26 +1,13 @@
 import "./Stats.css";
-import classNames from "classnames";
+import formatNumber from "../../../helpers/formatNumber";
 
 const Stats = ({ coin }) => {
-  const options = { year: "numeric", month: "long", day: "numeric" };
-  const date = new Date(coin.market_data?.atl_date?.usd?.split("T")[0]);
-  const date2 = new Date(coin.market_data?.ath_date?.usd?.split("T")[0]);
+  function formatDate(timestamp) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const date = new Date(timestamp?.split("T")[0]);
 
-  const percentClasses = classNames("percentage atp", {
-    negative: coin.market_data?.atl_change_percentage?.usd < 0,
-  });
-  const percentClasses2 = classNames("percentage atp", {
-    negative: coin.market_data?.ath_change_percentage?.usd < 0,
-  });
-
-  const formattedNumber = new Intl.NumberFormat("en-US", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(coin.market_data?.atl_change_percentage?.usd);
-  const formattedNumber2 = new Intl.NumberFormat("en-US", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(coin.market_data?.ath_change_percentage?.usd);
+    return date.toLocaleDateString("en-US", options);
+  }
 
   return (
     <div className="details">
@@ -47,10 +34,18 @@ const Stats = ({ coin }) => {
           <div>
             <p>
               $ {coin.market_data?.ath?.usd?.toLocaleString()}{" "}
-              <span className={percentClasses2}>{formattedNumber2} %</span>
+              <span
+                className={
+                  coin.market_data?.ath_change_percentage?.usd < 0
+                    ? "negative percentage atp"
+                    : "percentage atp"
+                }
+              >
+                {formatNumber(coin.market_data?.ath_change_percentage?.usd)} %
+              </span>
             </p>
             <p className="coin_date stats">
-              {date2.toLocaleDateString("en-US", options)}
+              {formatDate(coin.market_data?.ath_date?.usd)}
             </p>
           </div>
         </div>
@@ -60,10 +55,18 @@ const Stats = ({ coin }) => {
           <div>
             <p>
               $ {coin.market_data?.atl?.usd?.toLocaleString()}{" "}
-              <span className={percentClasses}>{formattedNumber} %</span>
+              <span
+                className={
+                  coin.market_data?.atl_change_percentage?.usd < 0
+                    ? "negative percentage atp"
+                    : "percentage atp"
+                }
+              >
+                {formatNumber(coin.market_data?.atl_change_percentage?.usd)} %
+              </span>
             </p>
             <p className="coin_date stats">
-              {date.toLocaleDateString("en-US", options)}
+              {formatDate(coin.market_data?.atl_date?.usd)}
             </p>
           </div>
         </div>

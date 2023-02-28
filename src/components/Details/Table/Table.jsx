@@ -1,29 +1,6 @@
 import "./Table.css";
-import classNames from "classnames";
 
 const Table = ({ coin }) => {
-  const percentClasses = classNames("percentage", {
-    negative: coin.market_data?.price_change_percentage_1h_in_currency?.usd < 0,
-  });
-  const percentClasses2 = classNames("percentage", {
-    negative:
-      coin.market_data?.price_change_percentage_24h_in_currency?.usd < 0,
-  });
-  const percentClasses3 = classNames("percentage", {
-    negative: coin.market_data?.price_change_percentage_7d_in_currency?.usd < 0,
-  });
-  const percentClasses4 = classNames("percentage", {
-    negative:
-      coin.market_data?.price_change_percentage_14d_in_currency?.usd < 0,
-  });
-  const percentClasses5 = classNames("percentage", {
-    negative:
-      coin.market_data?.price_change_percentage_30d_in_currency?.usd < 0,
-  });
-  const percentClasses6 = classNames("percentage", {
-    negative: coin.market_data?.price_change_percentage_1y_in_currency?.usd < 0,
-  });
-
   return (
     <table className="details table">
       <thead>
@@ -38,7 +15,13 @@ const Table = ({ coin }) => {
       </thead>
       <tbody>
         <tr>
-          <td className={percentClasses}>
+          <td
+            className={
+              coin.market_data?.price_change_percentage_1h_in_currency?.usd < 0
+                ? "negative percentage"
+                : "percentage"
+            }
+          >
             {coin.market_data?.price_change_percentage_1h_in_currency?.usd?.toFixed(
               1
             )}{" "}
@@ -46,7 +29,13 @@ const Table = ({ coin }) => {
               ? "%"
               : "0 %"}
           </td>
-          <td className={percentClasses2}>
+          <td
+            className={
+              coin.market_data?.price_change_percentage_24h_in_currency?.usd < 0
+                ? "negative percentage"
+                : "percentage"
+            }
+          >
             {coin.market_data?.price_change_percentage_24h_in_currency?.usd?.toFixed(
               1
             )}{" "}
@@ -54,7 +43,13 @@ const Table = ({ coin }) => {
               ? "%"
               : "0 %"}
           </td>
-          <td className={percentClasses3}>
+          <td
+            className={
+              coin.market_data?.price_change_percentage_7d_in_currency?.usd < 0
+                ? "negative percentage"
+                : "percentage"
+            }
+          >
             {coin.market_data?.price_change_percentage_7d_in_currency?.usd?.toFixed(
               1
             )}{" "}
@@ -62,7 +57,13 @@ const Table = ({ coin }) => {
               ? "%"
               : "0 %"}
           </td>
-          <td className={percentClasses4}>
+          <td
+            className={
+              coin.market_data?.price_change_percentage_14d_in_currency?.usd < 0
+                ? "negative percentage"
+                : "percentage"
+            }
+          >
             {coin.market_data?.price_change_percentage_14d_in_currency?.usd?.toFixed(
               1
             )}{" "}
@@ -70,7 +71,13 @@ const Table = ({ coin }) => {
               ? "%"
               : "0 %"}
           </td>
-          <td className={percentClasses5}>
+          <td
+            className={
+              coin.market_data?.price_change_percentage_30d_in_currency?.usd < 0
+                ? "negative percentage"
+                : "percentage"
+            }
+          >
             {coin.market_data?.price_change_percentage_30d_in_currency?.usd?.toFixed(
               1
             )}{" "}
@@ -78,7 +85,13 @@ const Table = ({ coin }) => {
               ? "%"
               : "0 %"}
           </td>
-          <td className={percentClasses6}>
+          <td
+            className={
+              coin.market_data?.price_change_percentage_1y_in_currency?.usd < 0
+                ? "negative percentage"
+                : "percentage"
+            }
+          >
             {coin.market_data?.price_change_percentage_1y_in_currency?.usd?.toFixed(
               1
             )}{" "}

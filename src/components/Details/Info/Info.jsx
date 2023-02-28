@@ -1,12 +1,8 @@
 import "./Info.css";
 import Chart from "../Chart/Chart";
+import formatNumber from "../../../helpers/formatNumber";
 
 const Info = ({ coin }) => {
-  const formattedNumber = new Intl.NumberFormat("en-US", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(coin.market_data?.current_price?.usd);
-
   return (
     <div className="details coin_info">
       <p className="coin_rank">Rank #{coin.market_cap_rank}</p>
@@ -22,7 +18,9 @@ const Info = ({ coin }) => {
         </div>
         <div className="coin_price-wrapper">
           <span className="coin_price-title">Current Price</span>
-          <p className="coin_price">$ {formattedNumber}</p>
+          <p className="coin_price">
+            $ {formatNumber(coin.market_data?.current_price?.usd)}
+          </p>
         </div>
       </div>
       <hr />
