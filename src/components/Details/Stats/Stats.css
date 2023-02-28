@@ -5,6 +5,7 @@
   gap: 0.5em;
   margin: 0.5em 0;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .details .percentage.atp {
@@ -19,7 +20,6 @@
 /* Info */
 .hover {
   margin-left: 5px;
-  position: relative;
 }
 
 .info {
@@ -32,7 +32,7 @@
   color: #000;
   width: 300px;
   bottom: 20px;
-  left: 50%;
+  left: -15px;
   transition: 0.3s linear;
   white-space: pre-line;
   border-radius: 8px;
@@ -41,18 +41,6 @@
 .hover:hover > .info {
   opacity: 1;
   visibility: visible;
-}
-
-@media only screen and (max-width: 530px) {
-  .hover {
-    position: static;
-  }
-  .stats_mc {
-    position: relative;
-  }
-  .info {
-    left: -15px;
-  }
 }
 
 @media only screen and (max-width: 400px) {
