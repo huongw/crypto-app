@@ -1,11 +1,19 @@
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import { gradient, options } from "./configs.js";
-import formatDate from "../../../helpers/formatDate";
 
 const ChartLine = ({ chartData, day }) => {
+  const labels = chartData.map((data) => {
+    const timestamp = data[0];
+    const date = new Date(timestamp);
+    const month = date.toLocaleString("default", { month: "long" }); // get the full month name
+    const day = date.getDate(); // get the day of the month (1-31)
+    const formattedDate = `${month} ${day}`; // combine the month name and day into a string
+    return formattedDate;
+  });
+
   const data = {
-    labels: chartData.map((data) => formatDate(data[1])),
+    labels: labels,
     datasets: [
       {
         label: `Currency in USD (Last ${day} days)`,
