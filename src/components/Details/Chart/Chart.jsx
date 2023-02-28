@@ -26,6 +26,8 @@ const Chart = ({ coin }) => {
           <SelectButton setDays={setDay} numOfDays={7} day={day} />
           <SelectButton setDays={setDay} numOfDays={14} day={day} />
           <SelectButton setDays={setDay} numOfDays={30} day={day} />
+          <SelectButton setDays={setDay} numOfDays={90} day={day} />
+          <SelectButton setDays={setDay} numOfDays={365} day={day} />
         </div>
       </div>
       <ChartLine chartData={chartData} day={day} />
