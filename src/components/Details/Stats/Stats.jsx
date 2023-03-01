@@ -10,8 +10,6 @@ const Stats = ({ coin }) => {
     return date.toLocaleDateString("en-US", options);
   }
 
-  // console.log(coin);
-
   return (
     <div className="details">
       <h2>{coin.symbol?.toUpperCase()} Price Statistics</h2>

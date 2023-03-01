@@ -1,6 +1,5 @@
 import "./Info.css";
 import Chart from "../Chart/Chart";
-import formatNumber from "../../../helpers/formatNumber";
 
 const Info = ({ coin }) => {
   return (
@@ -19,7 +18,7 @@ const Info = ({ coin }) => {
         <div className="coin_price-wrapper">
           <span className="coin_price-title">Current Price</span>
           <p className="coin_price">
-            $ {formatNumber(coin.market_data?.current_price?.usd)}
+            $ {coin.market_data?.current_price?.usd.toLocaleString()}
           </p>
         </div>
       </div>
