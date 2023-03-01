@@ -108,7 +108,6 @@ const Stats = ({ coin }) => {
             </p>
           </div>
         </div>
-        <hr />
       </div>
     </div>
   );
