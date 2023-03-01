@@ -8,7 +8,7 @@ export const gradient = (context) => {
 
 export const options = {
   responsive: true,
-  radius: 3.5,
+  radius: 2,
   hitRadius: 30,
   plugins: {
     legend: {

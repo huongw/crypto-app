@@ -21,7 +21,7 @@ const ChartLine = ({ chartData, day }) => {
         backgroundColor: gradient,
         borderColor: "rgba(0,210,255,1)",
         pointBackgroundColor: "#fff",
-        tension: 0.4,
+        tension: 0.2,
         fill: true,
       },
     ],
