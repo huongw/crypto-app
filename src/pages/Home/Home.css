@@ -80,9 +80,6 @@ img {
   flex: 1;
 }
 
-.coin-price {
-  text-align: left;
-}
 
 .hide-mobile,
 .coin-name {
@@ -94,10 +91,10 @@ img {
   text-align: center;
 }
 
-.cap {
+.cap,
+.coin-price {
   text-align: left;
 }
-
 
 .percentage {
   color: #4eaf0a;
