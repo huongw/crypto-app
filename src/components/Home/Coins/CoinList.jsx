@@ -1,4 +1,4 @@
-import { CoinListItem } from "../../pages";
+import { CoinListItem } from "../../../pages";
 import { Link } from "react-router-dom";
 
 const CoinList = ({ filteredCoins }) => {
@@ -8,6 +8,7 @@ const CoinList = ({ filteredCoins }) => {
         return (
           <Link key={coin.id} to={`/details/${coin.id}`}>
             <CoinListItem
+              rank={coin.market_cap_rank}
               name={coin.name}
               image={coin.image}
               percentage={coin.market_cap_change_percentage_24h}

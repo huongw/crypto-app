@@ -3,7 +3,8 @@ import React from "react";
 const Header = () => {
   return (
     <div className="header">
-      <p className="coin-name">Coin</p>
+      <p>#</p>
+      <p>Coin</p>
       <p>Price</p>
       <p>24h</p>
       <p className="hide-mobile">Volume</p>

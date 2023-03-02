@@ -41,118 +41,11 @@ a {
   font-size: 1.5em;
 }
 
-.header,
-.coin-row {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 2em 0;
-  box-shadow: 2px 2px 10px #000;
-  margin: 1.2em auto;
-  border-radius: 8px;
-}
-
-.header {
-  margin-top: 2em;
-  padding: 1em 0;
-  font-weight: 600;
-  background: rgb(122, 14, 148);
-  background: linear-gradient(
-    99deg,
-    rgba(122, 14, 148, 1) 0%,
-    rgba(111, 22, 156, 1) 100%,
-    rgba(157, 112, 225, 1) 100%,
-    rgba(68, 81, 213, 1) 100%
-  );
-}
-
-.search-bar {
-  max-width: 600px;
-  width: 95%;
-  box-shadow: 2px 2px 10px #000;
-  margin: auto;
-  position: relative;
-}
-
-.search-bar svg {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 12px;
-  color: #000;
-}
-
-.search-bar input {
-  border-radius: 8px;
-  background-color: #ddd;
-  padding: 1em 3em;
-  width: 100%;
-  border: 0;
-}
-
-.img-wrapper {
-  max-width: 40px;
-  display: flex;
-}
-
-img {
-  width: 100%;
-}
-
-.coin-row {
-  position: relative;
-  transition: 0.2s linear;
-}
-
-.coin-row:hover {
-  transform: scale(1.02);
-}
-
-.coin-name {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1em;
-}
-
-.percentage {
-  color: #4eaf0a;
-}
-
-.home.percentage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.negative {
-  color: #ff1900;
-}
-
 .error {
   text-align: center;
 }
 
-@media only screen and (max-width: 800px) {
-  .hide-mobile {
-    display: none;
-  }
-}
-
 @media only screen and (max-width: 430px) {
-  .header,
-  .coin-row {
-    padding: 1em 0;
-  }
-
-  .header {
-    margin: 1em 0 0;
-  }
-
-  .coin-row {
-    margin: 0.8em auto;
-  }
-
   .logo {
     font-size: 1.2em;
   }

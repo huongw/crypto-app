@@ -2,6 +2,7 @@ import { RxTriangleUp, RxTriangleDown } from "react-icons/rx";
 
 const CoinListItem = ({
   id,
+  rank,
   name,
   image,
   percentage,
@@ -11,13 +12,16 @@ const CoinListItem = ({
 }) => {
   return (
     <div className="coin-row" key={id}>
+      <div className="rank">
+        {rank}
+      </div>
       <div className="coin-name">
         <div className="img-wrapper">
           <img src={image} alt={name} />
         </div>
         <p>{name}</p>
       </div>
-      <p>$ {price?.toLocaleString()}</p>
+      <p className="coin-price">$ {price?.toLocaleString()}</p>
       <p
         className={
           percentage < 0 ? "negative percentage home" : "percentage home"

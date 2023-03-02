@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { SearchBar, Header, Coins } from "../pages";
+import { SearchBar, Header, Coins } from "..";
+import "./Home.css";
 
 const Home = ({ isLoading, setIsLoading, error, setError }) => {
   const [input, setInput] = useState("");
