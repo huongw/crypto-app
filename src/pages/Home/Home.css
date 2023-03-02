@@ -1,9 +1,8 @@
 .header,
 .coin-row {
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  padding: 2em 0;
+  padding: 1.5em 0;
   box-shadow: 2px 2px 10px #000;
   margin: 1em auto;
   border-radius: 8px;
@@ -11,7 +10,6 @@
 
 .header {
   margin-top: 2em;
-  padding: 1em 0;
   font-weight: 600;
   background: rgb(122, 14, 148);
   background: linear-gradient(
@@ -59,7 +57,6 @@ img {
 .coin-row {
   position: relative;
   transition: 0.2s linear;
-  padding: 1.5em 1em;
 }
 
 .coin-row:hover {
@@ -69,18 +66,48 @@ img {
 .coin-name {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 0.5em;
+  line-height: 1em;
 }
+
+.cap {
+  padding-right: 10px;
+}
+
+.home.percentage,
+.coin-price,
+.rank {
+  flex: 1;
+  text-align: right;
+}
+
+.hide-mobile,
+.coin-name {
+  flex: 2;
+}
+
+.rank,
+.hide-mobile {
+  text-align: center;
+}
+
+.cap {
+  text-align: left;
+}
+
 
 .percentage {
   color: #4eaf0a;
 }
 
+.home.coin-percentage {
+  color: #fff;
+}
+
 .home.percentage {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .negative {
@@ -90,6 +117,12 @@ img {
 @media only screen and (max-width: 800px) {
   .hide-mobile {
     display: none;
+  }
+  .coin-price {
+    text-align: center;
+  }
+  .home.percentage {
+    justify-content: center;
   }
 }
 
