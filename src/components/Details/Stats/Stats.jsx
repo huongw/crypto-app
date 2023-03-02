@@ -10,6 +10,8 @@ const Stats = ({ coin }) => {
     return date.toLocaleDateString("en-US", options);
   }
 
+  console.log(coin.market_data)
+
   return (
     <div className="details">
       <h2>{coin.symbol?.toUpperCase()} Price Statistics</h2>
@@ -64,7 +66,7 @@ const Stats = ({ coin }) => {
               Max Supply = Theoretical maximum as coded`}
             />
           </h4>
-          ${coin.market_data?.max_supply?.toLocaleString()}
+          {coin.market_data?.max_supply ? "$" + coin.market_data?.max_supply?.toLocaleString() : "--"}
         </div>
         <hr />
         <div className="stats stats_atlh">
