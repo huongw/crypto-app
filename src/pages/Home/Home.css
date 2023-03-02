@@ -78,7 +78,10 @@ img {
 .coin-price,
 .rank {
   flex: 1;
-  text-align: right;
+}
+
+.coin-price {
+  text-align: left;
 }
 
 .hide-mobile,
@@ -107,7 +110,7 @@ img {
 .home.percentage {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .negative {
@@ -118,11 +121,9 @@ img {
   .hide-mobile {
     display: none;
   }
-  .coin-price {
-    text-align: center;
-  }
+ 
   .home.percentage {
-    justify-content: center;
+    justify-content: flex-start;
   }
 }
 
