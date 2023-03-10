@@ -1,7 +1,7 @@
 import "./Info.css";
 import Chart from "../Chart/Chart";
 
-const Info = ({ coin }) => {
+const Info = ({ coin, error, setError }) => {
   return (
     <div className="details coin_info">
       <p className="coin_rank">Rank #{coin.market_cap_rank}</p>
@@ -23,7 +23,7 @@ const Info = ({ coin }) => {
         </div>
       </div>
       <hr />
-      <Chart coin={coin} />
+      <Chart coin={coin} error={error} setError={setError}/>
     </div>
   );
 };

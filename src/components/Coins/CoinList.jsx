@@ -1,4 +1,4 @@
-import { CoinListItem } from "../../../pages";
+import { CoinListItem } from "../../pages";
 import { Link } from "react-router-dom";
 
 const CoinList = ({ filteredCoins }) => {

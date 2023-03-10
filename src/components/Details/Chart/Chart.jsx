@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { Error } from "../../../pages";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./Chart.css";
 import SelectButton from "./SelectButton";
 import ChartLine from "./ChartLine";
 
-const Chart = ({ coin }) => {
+const Chart = ({ coin, error, setError }) => {
   const [chartData, setChartData] = useState([]);
   const params = useParams();
   const [day, setDay] = useState(7);
@@ -15,8 +16,14 @@ const Chart = ({ coin }) => {
       .get(
         `https://api.coingecko.com/api/v3/coins/${params.id}/market_chart?vs_currency=usd&days=${day}&interval=daily`
       )
-      .then((res) => setChartData(res.data.prices));
+      .then((res) => setChartData(res.data.prices))
+      .catch((err) => {
+        console.log(err.message);
+        setError("Oops! Too many requests, please try again later.");
+      });
   }, [params.id, day]);
+
+  if (error) return <Error message={error} />;
 
   return (
     <div className="chart">

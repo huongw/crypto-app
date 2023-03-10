@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Error } from "../../../pages";
 import axios from "axios";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
@@ -33,49 +34,42 @@ const Trending = ({ error, setError }) => {
       });
   }, []);
 
+  if (error) return <Error message={error} />;
+
   return (
-    <>
-      {error && (
-        <p className="error">
-          <strong>{error}</strong>
-        </p>
-      )}
-      {!error && (
-        <div className="details trending">
-          <h3>
-            Top trending coins searched by users{" "}
-            <span className="grey-color">
-              {"("}Last 24h{")"}
-            </span>
-          </h3>
-          <Splide options={{ ...settings }}>
-            {trendingCoins.map((coin) => {
-              const coinItem = coin.item;
+    <div className="details trending">
+      <h3>
+        Top trending coins searched by users{" "}
+        <span className="grey-color">
+          {"("}Last 24h{")"}
+        </span>
+      </h3>
+      <Splide options={{ ...settings }}>
+        {trendingCoins.map((coin) => {
+          const coinItem = coin.item;
 
-              return (
-                <SplideSlide key={coinItem?.id}>
-                  <p>
-                    {coinItem?.name}{" "}
-                    <span>
-                      {"["}
-                      {coinItem?.symbol}
-                      {"]"}
-                    </span>
-                  </p>
+          return (
+            <SplideSlide key={coinItem?.id}>
+              <p>
+                {coinItem?.name}{" "}
+                <span>
+                  {"["}
+                  {coinItem?.symbol}
+                  {"]"}
+                </span>
+              </p>
 
-                  <div className="img-wrapper trending">
-                    <img src={coinItem?.large} alt={coinItem?.name} />
-                  </div>
-                  <p className="coin_rank trending">
-                    Rank #{coinItem?.market_cap_rank}
-                  </p>
-                </SplideSlide>
-              );
-            })}
-          </Splide>
-        </div>
-      )}
-    </>
+              <div className="img-wrapper trending">
+                <img src={coinItem?.large} alt={coinItem?.name} />
+              </div>
+              <p className="coin_rank trending">
+                Rank #{coinItem?.market_cap_rank}
+              </p>
+            </SplideSlide>
+          );
+        })}
+      </Splide>
+    </div>
   );
 };
 

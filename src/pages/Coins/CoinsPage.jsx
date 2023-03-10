@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { SearchBar, Header, Coins } from "..";
-import "./Home.css";
+import { Coins, SearchBar, Header } from "../index";
+import "./CoinsPage.css";
 
-const Home = ({ isLoading, setIsLoading, error, setError }) => {
+const CoinsPage = ({ isLoading, setIsLoading, error, setError }) => {
   const [input, setInput] = useState("");
 
   const onInputChange = (e) => {
@@ -24,4 +24,4 @@ const Home = ({ isLoading, setIsLoading, error, setError }) => {
   );
 };
 
-export default Home;
+export default CoinsPage;
