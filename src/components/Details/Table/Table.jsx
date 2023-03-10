@@ -1,6 +1,6 @@
 import "./Table.css";
 
-const Table = ({ coin, currency }) => {
+const Table = ({ coin }) => {
   return (
     <table className="details table">
       <thead>
@@ -17,85 +17,85 @@ const Table = ({ coin, currency }) => {
         <tr>
           <td
             className={
-              coin.market_data?.price_change_percentage_1h_in_currency?.[`${currency}`] < 0
+              coin.market_data?.price_change_percentage_1h_in_currency?.usd < 0
                 ? "negative percentage"
                 : "percentage"
             }
           >
-            {coin.market_data?.price_change_percentage_1h_in_currency?.[`${currency}`]?.toFixed(
+            {coin.market_data?.price_change_percentage_1h_in_currency?.usd?.toFixed(
               1
             )}{" "}
-            {coin.market_data?.price_change_percentage_1h_in_currency?.[`${currency}`]
+            {coin.market_data?.price_change_percentage_1h_in_currency?.usd
               ? "%"
               : "0 %"}
           </td>
           <td
             className={
-              coin.market_data?.price_change_percentage_24h_in_currency?.[`${currency}`] < 0
+              coin.market_data?.price_change_percentage_24h_in_currency?.usd < 0
                 ? "negative percentage"
                 : "percentage"
             }
           >
-            {coin.market_data?.price_change_percentage_24h_in_currency?.[`${currency}`]?.toFixed(
+            {coin.market_data?.price_change_percentage_24h_in_currency?.usd?.toFixed(
               1
             )}{" "}
-            {coin.market_data?.price_change_percentage_24h_in_currency?.[`${currency}`]
+            {coin.market_data?.price_change_percentage_24h_in_currency?.usd
               ? "%"
               : "0 %"}
           </td>
           <td
             className={
-              coin.market_data?.price_change_percentage_7d_in_currency?.[`${currency}`] < 0
+              coin.market_data?.price_change_percentage_7d_in_currency?.usd < 0
                 ? "negative percentage"
                 : "percentage"
             }
           >
-            {coin.market_data?.price_change_percentage_7d_in_currency?.[`${currency}`]?.toFixed(
+            {coin.market_data?.price_change_percentage_7d_in_currency?.usd?.toFixed(
               1
             )}{" "}
-            {coin.market_data?.price_change_percentage_7d_in_currency?.[`${currency}`]
+            {coin.market_data?.price_change_percentage_7d_in_currency?.usd
               ? "%"
               : "0 %"}
           </td>
           <td
             className={
-              coin.market_data?.price_change_percentage_14d_in_currency?.[`${currency}`] < 0
+              coin.market_data?.price_change_percentage_14d_in_currency?.usd < 0
                 ? "negative percentage"
                 : "percentage"
             }
           >
-            {coin.market_data?.price_change_percentage_14d_in_currency?.[`${currency}`]?.toFixed(
+            {coin.market_data?.price_change_percentage_14d_in_currency?.usd?.toFixed(
               1
             )}{" "}
-            {coin.market_data?.price_change_percentage_14d_in_currency?.[`${currency}`]
+            {coin.market_data?.price_change_percentage_14d_in_currency?.usd
               ? "%"
               : "0 %"}
           </td>
           <td
             className={
-              coin.market_data?.price_change_percentage_30d_in_currency?.[`${currency}`] < 0
+              coin.market_data?.price_change_percentage_30d_in_currency?.usd < 0
                 ? "negative percentage"
                 : "percentage"
             }
           >
-            {coin.market_data?.price_change_percentage_30d_in_currency?.[`${currency}`]?.toFixed(
+            {coin.market_data?.price_change_percentage_30d_in_currency?.usd?.toFixed(
               1
             )}{" "}
-            {coin.market_data?.price_change_percentage_30d_in_currency?.[`${currency}`]
+            {coin.market_data?.price_change_percentage_30d_in_currency?.usd
               ? "%"
               : "0 %"}
           </td>
           <td
             className={
-              coin.market_data?.price_change_percentage_1y_in_currency?.[`${currency}`] < 0
+              coin.market_data?.price_change_percentage_1y_in_currency?.usd < 0
                 ? "negative percentage"
                 : "percentage"
             }
           >
-            {coin.market_data?.price_change_percentage_1y_in_currency?.[`${currency}`]?.toFixed(
+            {coin.market_data?.price_change_percentage_1y_in_currency?.usd?.toFixed(
               1
             )}{" "}
-            {coin.market_data?.price_change_percentage_1y_in_currency?.[`${currency}`]
+            {coin.market_data?.price_change_percentage_1y_in_currency?.usd
               ? "%"
               : "0 %"}
           </td>

@@ -2,7 +2,7 @@ import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import { gradient, options } from "./configs.js";
 
-const ChartLine = ({ chartData, day, currency }) => {
+const ChartLine = ({ chartData, day }) => {
   const labels = chartData.map((data) => {
     const timestamp = data[0];
     const date = new Date(timestamp);
@@ -16,7 +16,7 @@ const ChartLine = ({ chartData, day, currency }) => {
     labels: labels,
     datasets: [
       {
-        label: `Currency in ${currency} (Last ${day} days)`,
+        label: `Currency in USD (Last ${day} days)`,
         data: chartData.map((data) => data[1].toFixed(2)),
         backgroundColor: gradient,
         borderColor: "rgba(0,210,255,1)",

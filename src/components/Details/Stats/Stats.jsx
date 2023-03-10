@@ -2,7 +2,7 @@ import "./Stats.css";
 import formatNumber from "../../../helpers/formatNumber";
 import Hover from "./Hover";
 
-const Stats = ({ coin, currency }) => {
+const Stats = ({ coin }) => {
   function formatDate(timestamp) {
     const options = { year: "numeric", month: "long", day: "numeric" };
     const date = new Date(timestamp?.split("T")[0]);
@@ -16,8 +16,8 @@ const Stats = ({ coin, currency }) => {
       <div>
         <div className="stats stats_lh">
           <h4>24h Low / 24h High</h4>$
-          {coin.market_data?.low_24h?.[`${currency}`]?.toLocaleString()} / $
-          {coin.market_data?.high_24h?.[`${currency}`]?.toLocaleString()}
+          {coin.market_data?.low_24h?.usd?.toLocaleString()} / $
+          {coin.market_data?.high_24h?.usd?.toLocaleString()}
         </div>
         <hr />
         <div className="stats stats_mc">
@@ -30,7 +30,7 @@ const Stats = ({ coin, currency }) => {
               It is similar to the stock market's measurement of multiplying price per share by shares readily available in the market (not held & locked by insiders, governments)`}
             />
           </h4>
-          ${coin.market_data?.market_cap?.[`${currency}`]?.toLocaleString()}
+          ${coin.market_data?.market_cap?.usd?.toLocaleString()}
         </div>
         <hr />
         <div className="stats stats_mc">
@@ -71,19 +71,19 @@ const Stats = ({ coin, currency }) => {
           <h4>All-Time High</h4>
           <div>
             <p>
-              ${coin.market_data?.ath?.[`${currency}`]?.toLocaleString()}{" "}
+              ${coin.market_data?.ath?.usd?.toLocaleString()}{" "}
               <span
                 className={
-                  coin.market_data?.ath_change_percentage?.[`${currency}`] < 0
+                  coin.market_data?.ath_change_percentage?.usd < 0
                     ? "negative percentage atp"
                     : "percentage atp"
                 }
               >
-                {formatNumber(coin.market_data?.ath_change_percentage?.[`${currency}`])}%
+                {formatNumber(coin.market_data?.ath_change_percentage?.usd)}%
               </span>
             </p>
             <p className="coin_date stats">
-              {formatDate(coin.market_data?.ath_date?.[`${currency}`])}
+              {formatDate(coin.market_data?.ath_date?.usd)}
             </p>
           </div>
         </div>
@@ -92,19 +92,19 @@ const Stats = ({ coin, currency }) => {
           <h4>All-Time Low</h4>
           <div>
             <p>
-              ${coin.market_data?.atl?.[`${currency}`]?.toLocaleString()}{" "}
+              ${coin.market_data?.atl?.usd?.toLocaleString()}{" "}
               <span
                 className={
-                  coin.market_data?.atl_change_percentage?.[`${currency}`] < 0
+                  coin.market_data?.atl_change_percentage?.usd < 0
                     ? "negative percentage atp"
                     : "percentage atp"
                 }
               >
-                {formatNumber(coin.market_data?.atl_change_percentage?.[`${currency}`])}%
+                {formatNumber(coin.market_data?.atl_change_percentage?.usd)}%
               </span>
             </p>
             <p className="coin_date stats">
-              {formatDate(coin.market_data?.atl_date?.[`${currency}`])}
+              {formatDate(coin.market_data?.atl_date?.usd)}
             </p>
           </div>
         </div>
