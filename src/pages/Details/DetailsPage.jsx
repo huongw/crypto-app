@@ -3,12 +3,18 @@ import { useEffect, useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import axios from "axios";
 import DOMPurify from "dompurify";
-import "./Details.css";
+import "./DetailsPage.css";
 import { motion } from "framer-motion";
 import { Table, Stats, Trending, Loader, Error } from "../index";
 import Info from "../../components/Details/Info/Info";
 
-const Details = ({ isLoading, setIsLoading, error, setError }) => {
+const DetailsPage = ({
+  isLoading,
+  setIsLoading,
+  error,
+  setError,
+  currency,
+}) => {
   const [coin, setCoin] = useState({});
   const params = useParams();
   let navigate = useNavigate();
@@ -50,9 +56,9 @@ const Details = ({ isLoading, setIsLoading, error, setError }) => {
         Last updated: {date.toLocaleDateString("en-US", options)}
       </p>
       <h1 className="details details_name">{coin.name}</h1>
-      <Info coin={coin} error={error} setError={setError} />
-      <Stats coin={coin} />
-      <Table coin={coin} />
+      <Info coin={coin} error={error} setError={setError} currency={currency} />
+      <Stats coin={coin} currency={currency} />
+      <Table coin={coin} currency={currency} />
       <div className="details details_desc-wrapper">
         <h2>What is {coin.name}?</h2>
         <p
@@ -66,4 +72,4 @@ const Details = ({ isLoading, setIsLoading, error, setError }) => {
   );
 };
 
-export default Details;
+export default DetailsPage;

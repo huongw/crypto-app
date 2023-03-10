@@ -6,7 +6,7 @@ import "./Chart.css";
 import SelectButton from "./SelectButton";
 import ChartLine from "./ChartLine";
 
-const Chart = ({ coin, error, setError }) => {
+const Chart = ({ coin, error, setError, currency }) => {
   const [chartData, setChartData] = useState([]);
   const params = useParams();
   const [day, setDay] = useState(7);
@@ -14,7 +14,7 @@ const Chart = ({ coin, error, setError }) => {
   useEffect(() => {
     axios
       .get(
-        `https://api.coingecko.com/api/v3/coins/${params.id}/market_chart?vs_currency=usd&days=${day}&interval=daily`
+        `https://api.coingecko.com/api/v3/coins/${params.id}/market_chart?vs_currency=${currency}&days=${day}&interval=daily`
       )
       .then((res) => setChartData(res.data.prices))
       .catch((err) => {
@@ -37,7 +37,7 @@ const Chart = ({ coin, error, setError }) => {
           <SelectButton setDays={setDay} numOfDays={365} day={day} />
         </div>
       </div>
-      <ChartLine chartData={chartData} day={day} />
+      <ChartLine chartData={chartData} day={day} currency={currency} />
     </div>
   );
 };
