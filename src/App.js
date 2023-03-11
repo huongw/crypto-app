@@ -1,22 +1,16 @@
 import "./App.css";
 import Pages from "./pages/Pages";
-
+import { NavBar } from "./pages";
 import { BrowserRouter as Router } from "react-router-dom";
-import { RiCoinsLine } from "react-icons/ri";
 
 function App() {
   return (
-    <div className="container">
+    <>
       <Router>
-        <div className="logo">
-          <RiCoinsLine />
-          <h1>
-            Crypto<span className="logo-color">Hive</span>
-          </h1>
-        </div>
+        <NavBar />
         <Pages />
       </Router>
-    </div>
+    </>
   );
 }
 

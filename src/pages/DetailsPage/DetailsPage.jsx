@@ -1,34 +1,23 @@
-import { useParams, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
-import axios from "axios";
 import DOMPurify from "dompurify";
-import "./Details.css";
+import "./DetailsPage.css";
 import { motion } from "framer-motion";
-import { Table, Stats, Trending, Loader, Error } from "../index";
+import { Table, Stats, Loader, Error } from "../index";
 import Info from "../../components/Details/Info/Info";
+import { useContext } from "react";
+import ErrorContext from "../../context/ErrorContext";
+import LoadingContext from "../../context/LoadingContext";
+import useFetchDetails from "../../hooks/useFetchDetails";
 
-const Details = ({ isLoading, setIsLoading, error, setError }) => {
-  const [coin, setCoin] = useState({});
-  const params = useParams();
+const DetailsPage = () => {
   let navigate = useNavigate();
+  const { coin } = useFetchDetails();
 
   const options = { year: "numeric", month: "long", day: "numeric" };
   const date = new Date(coin.last_updated?.split("T")[0]);
-
-  useEffect(() => {
-    setIsLoading(true);
-    axios
-      .get(
-        `https://api.coingecko.com/api/v3/coins/${params.id}?tickers=false&community_data=false&developer_data=false&sparkline=false`
-      )
-      .then((res) => setCoin(res.data))
-      .catch((err) => {
-        console.log(err.message);
-        setError("Oops! Too many requests, please try again later.");
-      })
-      .finally(() => setIsLoading(false));
-  }, [params.id]);
+  const { setError, error } = useContext(ErrorContext);
+  const { isLoading } = useContext(LoadingContext);
 
   if (isLoading) return <Loader />;
 
@@ -61,9 +50,9 @@ const Details = ({ isLoading, setIsLoading, error, setError }) => {
           }}
         ></p>
       </div>
-      <Trending error={error} setError={setError} />
+      {/* <Trending error={error} setError={setError} /> */}
     </motion.div>
   );
 };
 
-export default Details;
+export default DetailsPage;

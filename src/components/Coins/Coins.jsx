@@ -1,27 +1,14 @@
 import { motion } from "framer-motion";
 import { CoinList, Loader, Error } from "../../pages";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import useFetchCoins from "../../hooks/useFetchCoins";
+import { useContext } from "react";
+import ErrorContext from "../../context/ErrorContext";
+import LoadingContext from "../../context/LoadingContext";
 
-const Coins = ({ input, isLoading, setIsLoading, error, setError }) => {
-  const [coins, setCoins] = useState([]);
-
-  useEffect(() => {
-    setIsLoading(true);
-    axios
-      .get(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=200&page=1&sparkline=false"
-      )
-      .then((res) => {
-        setIsLoading(true);
-        setCoins(res.data);
-      })
-      .catch((err) => {
-        console.log(err.message);
-        setError("Oops! Too many requests, please try again later.");
-      })
-      .finally(() => setIsLoading(false));
-  }, []);
+const Coins = ({ input }) => {
+  const { coins } = useFetchCoins();
+  const { isLoading } = useContext(LoadingContext);
+  const { error } = useContext(ErrorContext);
 
   const filteredCoins = coins.filter((coin) =>
     coin.name.toLowerCase().includes(input.toLowerCase())
@@ -29,7 +16,7 @@ const Coins = ({ input, isLoading, setIsLoading, error, setError }) => {
 
   if (isLoading) return <Loader />;
 
-  if (error) return <Error message={error} />;
+  if (error) return <Error message={error.message} />;
 
   return (
     <motion.div

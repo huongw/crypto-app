@@ -1,0 +1,32 @@
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../../images/hero-bg.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 50%;
+  text-shadow: 5px 5px 15px #000;
+}
+
+.hero-section p {
+  margin-top: 1em;
+  max-width: 1000px;
+  text-align: center;
+}
+
+.about-coins-section,
+.about-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-coins-section {
+  min-height: 50vh;
+  background-color: rgba(77, 67, 91, 0.5);
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
