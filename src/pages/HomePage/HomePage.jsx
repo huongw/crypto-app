@@ -1,14 +1,45 @@
 import { Link } from "react-router-dom";
 import { Trending } from "..";
 import "./HomePage.css";
-import useFetch from "../../hooks/useFetch";
 import { Error, Loader } from "../";
 import { RxTriangleUp, RxTriangleDown } from "react-icons/rx";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Home = () => {
-  const { data, isLoading, error } = useFetch(
-    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=6&page=1&sparkline=false"
-  );
+  const [trending, setTrending] = useState([]);
+  const [coins, setCoins] = useState([]);
+  const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const coinsURL = axios.get(
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=6&page=1&sparkline=false"
+    );
+    const trendingURL = axios.get(
+      "https://api.coingecko.com/api/v3/search/trending"
+    );
+
+    axios
+      .all([coinsURL, trendingURL], {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then(
+        axios.spread((...res) => {
+          setCoins(res[0].data);
+          setTrending(res[1].data);
+        })
+      )
+      .catch((err) => {
+        console.log(err.message);
+        setError("Oops, something went wrong! Please try again later.");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, []);
 
   if (isLoading) return <Loader />;
 
@@ -39,15 +70,13 @@ const Home = () => {
           <Link to={"/coins"}>See More Coins</Link>
         </div>
         <div className="coin-wrapper">
-          {data.map((coin) => (
+          {coins.map((coin) => (
             <div className="coin-row" key={coin.id}>
               <div className="img-wrapper">
                 <img src={coin.image} alt={coin.name} />
               </div>
               <h3>{coin.name}</h3>
-              <p>
-                ${coin.current_price?.toLocaleString()}
-              </p>
+              <p>${coin.current_price?.toLocaleString()}</p>
               <p
                 className={
                   coin.market_cap_change_percentage_24h < 0
@@ -66,7 +95,7 @@ const Home = () => {
           ))}
         </div>
       </div>
-      <Trending />
+      <Trending trending={trending} />
     </div>
   );
 };

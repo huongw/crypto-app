@@ -8,7 +8,6 @@ const CoinsPage = () => {
   const onInputChange = (e) => {
     setInput(e.target.value);
   };
-
   return (
     <div className="container">
       <SearchBar onInputChange={onInputChange} />
