@@ -23,17 +23,15 @@
   display: flex;
   align-items: center;
   min-height: 7vh;
-  top: 0;
-  left: 0;
+  padding: 1em;
   width: 100%;
-  z-index: 1;
 }
 
 ul {
   list-style-type: none;
   display: flex;
   flex: 1;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   font-weight: bold;
 }
@@ -41,4 +39,15 @@ ul {
 li a.active {
   color: rgb(122, 14, 148);
   border-bottom: 2px solid;
+}
+
+@media only screen and (max-width: 650px) {
+  .nav-bar {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  ul {
+    width: 100%;
+  }
 }

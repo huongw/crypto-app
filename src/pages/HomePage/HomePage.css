@@ -70,6 +70,7 @@
   flex-direction: column;
   margin: auto;
   color: #000;
+  font-size: 0.9em;
 }
 
 .coin.percentage {
