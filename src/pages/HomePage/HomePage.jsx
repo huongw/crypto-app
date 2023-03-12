@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Trending } from "..";
 import "./HomePage.css";
 
 const Home = () => {
@@ -19,6 +20,7 @@ const Home = () => {
       <div className="about-coins-section">
         <Link to={"/coins"}>Coins Page</Link>
       </div>
+      <Trending />
     </div>
   );
 };
