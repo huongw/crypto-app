@@ -3,7 +3,7 @@ import { BiArrowBack } from "react-icons/bi";
 import DOMPurify from "dompurify";
 import "./DetailsPage.css";
 import { motion } from "framer-motion";
-import { Table, Stats, Loader, Error } from "../index";
+import { Table, Stats, Loader, Error, News } from "../index";
 import Info from "../../components/Details/Info/Info";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -12,6 +12,7 @@ import axios from "axios";
 const DetailsPage = () => {
   const [coin, setCoin] = useState({});
   const [chartData, setChartData] = useState([]);
+  const [news, setNews] = useState([]);
   const [day, setDay] = useState(7);
 
   const [error, setError] = useState(false);
@@ -27,8 +28,25 @@ const DetailsPage = () => {
     const chartURL = axios.get(
       `https://api.coingecko.com/api/v3/coins/${params.id}/market_chart?vs_currency=usd&days=${day}&interval=daily`
     );
+    const newsURL = axios.get(
+      "https://bing-news-search1.p.rapidapi.com/news/search",
+      {
+        params: {
+          q: "cryptocurrency, nft",
+          safeSearch: "Moderate",
+          textFormat: "Raw",
+          freshness: "Day",
+        },
+        headers: {
+          "X-BingApis-SDK": "true",
+          "X-RapidAPI-Key":
+            "bf2daa8bfbmshe079206c8249eb2p1f3700jsn9e012b9fd7e2",
+          "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
+        },
+      }
+    );
     axios
-      .all([coinURL, chartURL], {
+      .all([coinURL, chartURL, newsURL], {
         headers: {
           "Content-Type": "application/json",
         },
@@ -37,6 +55,8 @@ const DetailsPage = () => {
         axios.spread((...res) => {
           setCoin(res[0].data);
           setChartData(res[1].data.prices);
+          setNews(res[2].data.value);
+          console.log(news);
         })
       )
       .catch((err) => setError("Oops, please try again later!"))
@@ -79,6 +99,7 @@ const DetailsPage = () => {
           }}
         ></p>
       </div>
+      <News news={news} />
     </motion.div>
   );
 };

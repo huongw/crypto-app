@@ -13,5 +13,6 @@ export { default as DetailsPage } from "./DetailsPage/DetailsPage";
 export { default as Stats } from "../components/Details/Stats/Stats";
 export { default as Trending } from "../components/Trending/Trending";
 export { default as Table } from "../components/Details/Table/Table";
+export { default as News } from "../components/Details/News/News";
 
 export { default as HomePage } from "./HomePage/HomePage";
