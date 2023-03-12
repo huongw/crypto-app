@@ -1,14 +1,11 @@
 .hero-section {
-  min-height: 100vh;
+  min-height: 93vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url("../../images/hero-bg.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: 50%;
   text-shadow: 5px 5px 15px #000;
+  text-align: center;
 }
 
 .hero-section p {
@@ -27,6 +24,70 @@
 
 .about-coins-section {
   min-height: 50vh;
-  background-color: rgba(77, 67, 91, 0.5);
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  background-color: rgba(77, 67, 91, 0.2);
+  gap: 5em;
+  padding: 5em 0;
+}
+
+.bitcoin {
+  color: #f7931a;
+}
+.ethereum {
+  color: #8890b0;
+}
+.tether {
+  color: #019696;
+}
+
+.about-coins-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1em;
+}
+
+.about-coins-wrapper a {
+  background-color: rgb(122, 14, 148);
+  border-radius: 0 10px 0 10px;
+  padding: 1em;
+}
+
+.about-coins-section .coin-wrapper {
+  width: 90%;
+  flex-wrap: wrap;
+  max-width: 400px;
+}
+
+.about-coins-section .coin-wrapper .coin-row {
+  flex: 1 1 100px;
+  min-height: 150px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  color: #000;
+}
+
+.coin.percentage {
+  color: green;
+}
+
+@media only screen and (max-width: 1050px) {
+  .about-coins-wrapper a,
+  .about-coins-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .about-coins-section {
+    flex-direction: column;
+  }
+  .coin-wrapper {
+    flex-direction: row;
+  }
 }

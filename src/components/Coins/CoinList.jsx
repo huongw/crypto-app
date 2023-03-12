@@ -5,6 +5,7 @@ const CoinList = ({ filteredCoins }) => {
   return (
     <>
       {filteredCoins.map((coin) => {
+        console.log(coin)
         return (
           <Link key={coin.id} to={`/details/${coin.id}`}>
             <CoinListItem
