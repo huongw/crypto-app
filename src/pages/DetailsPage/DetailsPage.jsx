@@ -56,7 +56,6 @@ const DetailsPage = () => {
           setCoin(res[0].data);
           setChartData(res[1].data.prices);
           setNews(res[2].data.value);
-          console.log(news);
         })
       )
       .catch((err) => setError("Oops, please try again later!"))

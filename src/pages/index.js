@@ -16,3 +16,5 @@ export { default as Table } from "../components/Details/Table/Table";
 export { default as News } from "../components/Details/News/News";
 
 export { default as HomePage } from "./HomePage/HomePage";
+
+export { default as NewsPage } from "./NewsPage/NewsPage";
