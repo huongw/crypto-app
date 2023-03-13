@@ -1,80 +1,28 @@
-.hero-section {
-  min-height: 93vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-shadow: 5px 5px 15px #000;
-  text-align: center;
-}
-
-.hero-section p {
-  margin-top: 1em;
-  max-width: 1000px;
-  text-align: center;
+.home-page {
+  background: rgb(122, 13, 204);
+  background: -moz-radial-gradient(
+    circle,
+    rgba(122, 13, 204, 0.6362745781906513) 0%,
+    rgba(27, 47, 130, 0.6838936258096988) 100%
+  );
+  background: -webkit-radial-gradient(
+    circle,
+    rgba(122, 13, 204, 0.6362745781906513) 0%,
+    rgba(27, 47, 130, 0.6838936258096988) 100%
+  );
+  background: radial-gradient(
+    circle,
+    rgba(122, 13, 204, 0.6362745781906513) 0%,
+    rgba(27, 47, 130, 0.6838936258096988) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7a0dcc",endColorstr="#1b2f82",GradientType=1);
 }
 
 .about-coins-section,
 .about-section {
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.about-coins-section {
-  min-height: 50vh;
-  background-color: rgba(77, 67, 91, 0.2);
-  gap: 5em;
-  padding: 5em 0;
-}
-
-.bitcoin {
-  color: #f7931a;
-}
-.ethereum {
-  color: #8890b0;
-}
-.tether {
-  color: #019696;
-}
-
-.about-coins-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 1em;
-}
-
-.about-coins-wrapper a {
-  background-color: rgb(122, 14, 148);
-  border-radius: 0 10px 0 10px;
-  padding: 1em;
-}
-
-.about-coins-section .coin-wrapper {
-  width: 90%;
-  flex-wrap: wrap;
-  max-width: 400px;
-}
-
-.about-coins-section .coin-wrapper .coin-row {
-  flex: 1 1 100px;
-  min-height: 150px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin: auto;
-  color: #000;
-  font-size: 0.9em;
-}
-
-.coin.percentage {
-  color: green;
 }
 
 @media only screen and (max-width: 1050px) {

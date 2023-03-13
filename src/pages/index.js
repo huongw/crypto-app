@@ -11,10 +11,13 @@ export { default as Error } from "../components/Error";
 
 export { default as DetailsPage } from "./DetailsPage/DetailsPage";
 export { default as Stats } from "../components/Details/Stats/Stats";
-export { default as Trending } from "../components/Trending/Trending";
+export { default as Trending } from "../components/Home/Trending/Trending";
 export { default as Table } from "../components/Details/Table/Table";
 export { default as News } from "../components/Details/News/News";
 
 export { default as HomePage } from "./HomePage/HomePage";
+export { default as Discover } from "../components/Home/Discover/Discover";
+export { default as Hero } from "../components/Home/Hero/Hero";
+export { default as About } from "../components/Home/About/About";
 
 export { default as NewsPage } from "./NewsPage/NewsPage";
