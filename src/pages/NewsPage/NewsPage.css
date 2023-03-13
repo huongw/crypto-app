@@ -1,0 +1,37 @@
+.crypto-news {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.crypto-news h3 {
+  flex: 1;
+}
+
+.crypto-news .flex-wrapper {
+  gap: 0.2em;
+}
+
+.crypto-news-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 95%;
+  margin: 0 auto;
+  gap: 1em;
+}
+
+.box-1 {
+  min-height: 50vh;
+  flex: 2;
+}
+.box-2 {
+  min-height: 70vh;
+  flex: 1;
+}
+
+.box {
+  margin-bottom: 1em;
+}

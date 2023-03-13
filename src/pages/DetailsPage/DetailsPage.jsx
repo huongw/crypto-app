@@ -40,7 +40,7 @@ const DetailsPage = () => {
         headers: {
           "X-BingApis-SDK": "true",
           "X-RapidAPI-Key":
-            "bf2daa8bfbmshe079206c8249eb2p1f3700jsn9e012b9fd7e2",
+            process.env.REACT_APP_NEWS_API_KEY,
           "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
         },
       }
