@@ -1,13 +1,22 @@
 import { useState } from "react";
-import { Coins, SearchBar, Header } from "../index";
+import { Coins, SearchBar, Header, Error, Loader } from "../index";
 import "./CoinsPage.css";
+import useFetch from "../../hooks/useFetch";
 
 const CoinsPage = () => {
   const [input, setInput] = useState("");
+  const { data, isLoading, error } = useFetch(
+    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=200&page=1&sparkline=false"
+  );
 
   const onInputChange = (e) => {
     setInput(e.target.value);
   };
+
+  if (isLoading) return <Loader />;
+
+  if (error) return <Error message={error.message} />;
+
   return (
     <div className="container">
       <div className="coins-title">
@@ -22,7 +31,7 @@ const CoinsPage = () => {
       </div>
       <SearchBar onInputChange={onInputChange} />
       <Header />
-      <Coins input={input} />
+      <Coins input={input} data={data} />
     </div>
   );
 };
