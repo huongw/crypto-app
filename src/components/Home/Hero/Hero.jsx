@@ -1,5 +1,6 @@
 import React from "react";
 import "./Hero.css";
+import heroImg from "../../../images/hero-img.png";
 
 const Hero = () => {
   return (
@@ -13,6 +14,9 @@ const Hero = () => {
         officia inventore ducimus sapiente numquam, ex eveniet harum amet.
         Asperiores, harum?
       </p>
+      <div className="img-wrapper">
+        <img src={heroImg} alt="" />
+      </div>
     </div>
   );
 };

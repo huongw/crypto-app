@@ -26,7 +26,7 @@ const News = ({ news }) => {
           <SwiperSlide key={item?.name}>
             <div className="news">
               <Link to={item?.url}>
-                <NewsListItem item={item} newsImg={newsImg}/>
+                <NewsListItem item={item} newsImg={newsImg} />
               </Link>
             </div>
           </SwiperSlide>

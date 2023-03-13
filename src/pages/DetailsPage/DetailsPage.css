@@ -1,6 +1,7 @@
 .details_container {
   max-width: 1000px;
   margin: 10em auto 5em;
+  width: 95%;
 }
 
 .details {

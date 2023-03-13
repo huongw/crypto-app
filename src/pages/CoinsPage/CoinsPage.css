@@ -11,14 +11,26 @@
 .header {
   margin-top: 2em;
   font-weight: 600;
-  background: rgb(122, 14, 148);
-  background: linear-gradient(
-    99deg,
-    rgba(122, 14, 148, 1) 0%,
-    rgba(111, 22, 156, 1) 100%,
-    rgba(157, 112, 225, 1) 100%,
-    rgba(68, 81, 213, 1) 100%
+  background: rgb(44, 199, 195);
+  background: -moz-linear-gradient(
+    50deg,
+    rgba(44, 199, 195, 0.7581233176864496) 0%,
+    rgba(4, 188, 190, 1) 100%,
+    rgba(0, 248, 255, 1) 100%
   );
+  background: -webkit-linear-gradient(
+    50deg,
+    rgba(44, 199, 195, 0.7581233176864496) 0%,
+    rgba(4, 188, 190, 1) 100%,
+    rgba(0, 248, 255, 1) 100%
+  );
+  background: linear-gradient(
+    50deg,
+    rgba(32, 147, 143, 0.758) 0%,
+    rgb(15, 134, 136) 100%,
+    rgba(0, 248, 255, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2cc7c3",endColorstr="#00f8ff",GradientType=1);
 }
 
 .search-bar {
@@ -80,7 +92,6 @@ img {
   flex: 1;
 }
 
-
 .hide-mobile,
 .coin-name {
   flex: 2;
@@ -118,7 +129,7 @@ img {
   .hide-mobile {
     display: none;
   }
- 
+
   .home.percentage {
     justify-content: flex-start;
   }
