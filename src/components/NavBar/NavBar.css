@@ -35,7 +35,7 @@ ul {
   list-style-type: none;
   display: flex;
   flex: 1;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   font-weight: bold;
 }
