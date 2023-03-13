@@ -5,14 +5,12 @@ import heroImg from "../../../images/hero-img.png";
 const Hero = () => {
   return (
     <div className="hero-section">
-      <h1>
-        Welcome to <span className="logo-color">Crypto</span> Hive!
-      </h1>
+
+      <h1>Your Gateway to the Future of Finance</h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos
-        repudiandae ullam voluptatibus ad incidunt quo magni tempore illo beatae
-        officia inventore ducimus sapiente numquam, ex eveniet harum amet.
-        Asperiores, harum?
+        Step into the Buzzing World of Crypto with the Latest Trends and Market
+        Data with <span className="logo-color">Crypto</span>Hive - Empowering
+        You to Make Informed Decisions and Achieve Financial Success
       </p>
       <div className="img-wrapper">
         <img src={heroImg} alt="" />

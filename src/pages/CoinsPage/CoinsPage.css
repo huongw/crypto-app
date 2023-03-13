@@ -9,7 +9,6 @@
 }
 
 .header {
-  margin-top: 2em;
   font-weight: 600;
   background: rgb(44, 199, 195);
   background: -moz-linear-gradient(
@@ -31,6 +30,13 @@
     rgba(0, 248, 255, 1) 100%
   );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2cc7c3",endColorstr="#00f8ff",GradientType=1);
+}
+
+.coins-title {
+  padding: 0 1em;
+  margin: 0 0 2em;
+  font-size: 0.9em;
+  text-align: center;
 }
 
 .search-bar {

@@ -8,7 +8,7 @@ const About = () => {
       <div>
         <h2 className="about-title">
           Secure your future with{" "}
-          <span className="logo-color">cryptocurrency</span>
+          <span className="logo-color">crypto</span>currency
         </h2>
         <p>
           Cryptocurrency is a type of currency that uses advanced encryption
