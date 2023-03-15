@@ -11,6 +11,8 @@ const NewsPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    const cancelToken = axios.CancelToken.source();
+
     const topNewsURL = axios.get(
       "https://bing-news-search1.p.rapidapi.com/news/search?q=cryptocurrency&count=5",
       {
@@ -34,7 +36,7 @@ const NewsPage = () => {
       }
     );
     axios
-      .all([topNewsURL, nftNewsURL])
+      .all([topNewsURL, nftNewsURL], { cancelToken: cancelToken.token })
       .then(
         axios.spread((...res) => {
           setTopNews(res[0].data.value);
@@ -42,10 +44,14 @@ const NewsPage = () => {
         })
       )
       .catch((err) => {
+        if (axios.isCancel(err)) return console.log("aborted");
+
         console.log(err.message);
         setError("Oops, there was an error! Please try again later.");
       })
       .finally(() => setIsLoading(false));
+
+    return () => cancelToken.cancel();
   }, []);
 
   if (isLoading) return <Loader />;
