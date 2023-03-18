@@ -9,11 +9,10 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+const options = { year: "numeric", month: "long", day: "numeric" };
+
 const DetailsPage = () => {
   const [coin, setCoin] = useState({});
-  const [chartData, setChartData] = useState([]);
-  const [news, setNews] = useState([]);
-  const [day, setDay] = useState(7);
 
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -24,56 +23,30 @@ const DetailsPage = () => {
   useEffect(() => {
     const cancelToken = axios.CancelToken.source();
 
-    const coinURL = axios.get(
-      `https://api.coingecko.com/api/v3/coins/${params.id}?tickers=false&community_data=false&developer_data=false&sparkline=false`
-    );
-    const chartURL = axios.get(
-      `https://api.coingecko.com/api/v3/coins/${params.id}/market_chart?vs_currency=usd&days=${day}&interval=daily`
-    );
-    const newsURL = axios.get(
-      "https://bing-news-search1.p.rapidapi.com/news/search",
-      {
-        params: {
-          q: "cryptocurrency, nft",
-          safeSearch: "Moderate",
-          textFormat: "Raw",
-          freshness: "Day",
-        },
-        headers: {
-          "X-BingApis-SDK": "true",
-          "X-RapidAPI-Key": process.env.REACT_APP_NEWS_API_KEY,
-          "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
-        },
-      }
-    );
     axios
-      .all([coinURL, chartURL, newsURL], {
-        cancelToken: cancelToken.token,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-      .then(
-        axios.spread((...res) => {
-          setCoin(res[0].data);
-          setChartData(res[1].data.prices);
-          setNews(res[2].data.value);
-        })
+      .get(
+        `https://api.coingecko.com/api/v3/coins/${params.id}?tickers=false&community_data=false&developer_data=false&sparkline=false`,
+        {
+          cancelToken: cancelToken.token,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       )
+      .then((res) => {
+        setCoin(res.data);
+      })
       .catch((err) => {
         if (axios.isCancel(err)) return;
 
         console.log(err.message);
         setError("Oops, please try again later!");
       })
-      .finally(() => {
-        setIsLoading(false);
-      });
+      .finally(() => setIsLoading(false));
 
     return () => cancelToken.cancel();
-  }, [params.id, day]);
+  }, [params.id]);
 
-  const options = { year: "numeric", month: "long", day: "numeric" };
   const date = new Date(coin.last_updated?.split("T")[0]);
 
   if (isLoading) return <Loader />;
@@ -96,7 +69,7 @@ const DetailsPage = () => {
         Last updated: {date.toLocaleDateString("en-US", options)}
       </p>
       <h1 className="details details_name">{coin.name}</h1>
-      <Info coin={coin} chartData={chartData} setDay={setDay} day={day} />
+      <Info coin={coin} />
       <Stats coin={coin} />
       <Table coin={coin} />
       <div className="details details_desc-wrapper">
@@ -107,7 +80,7 @@ const DetailsPage = () => {
           }}
         ></p>
       </div>
-      <News news={news} />
+      <News />
     </motion.div>
   );
 };

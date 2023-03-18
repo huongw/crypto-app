@@ -13,18 +13,18 @@ const useFetch = (url) => {
     axios
       .get(url, { cancelToken: cancelToken.token })
       .then((res) => {
-        setIsLoading(true);
         setData(res.data);
       })
       .catch((err) => {
         if (axios.isCancel(err)) return;
+
         console.log(err.message);
         setError("Oops! Too many requests, please try again later.");
       })
       .finally(() => setIsLoading(false));
 
     return () => cancelToken.cancel();
-  }, []);
+  }, [url]);
 
   return { data, error, isLoading };
 };

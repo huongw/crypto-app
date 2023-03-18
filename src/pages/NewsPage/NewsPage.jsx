@@ -37,14 +37,12 @@ const NewsPage = () => {
         },
       }
     );
-    axios
-      .all([topNewsURL, nftNewsURL])
-      .then(
-        axios.spread((...res) => {
-          setTopNews(res[0].data.value);
-          setNftNews(res[1].data.value);
-        })
-      )
+
+    Promise.all([topNewsURL, nftNewsURL])
+      .then((res) => {
+        setTopNews(res[0].data.value);
+        setNftNews(res[1].data.value);
+      })
       .catch((err) => {
         if (axios.isCancel(err)) return;
 
