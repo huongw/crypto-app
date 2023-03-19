@@ -1,7 +1,7 @@
-const Error = ({ message }) => {
+const Error = () => {
   return (
     <p className="error">
-      <strong>{message}</strong>
+      <strong>Oops, too many requests! Please try again later.</strong>
     </p>
   );
 };

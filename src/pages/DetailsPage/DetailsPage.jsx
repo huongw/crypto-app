@@ -6,21 +6,22 @@ import { motion } from "framer-motion";
 import { Table, Stats, Loader, Error, News } from "../index";
 import Info from "../../components/Details/Info/Info";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useReducer } from "react";
 import axios from "axios";
+import { INITIAL_STATE, postReducer } from "../../postReducer";
 
 const options = { year: "numeric", month: "long", day: "numeric" };
 
 const DetailsPage = () => {
   const [coin, setCoin] = useState({});
 
-  const [error, setError] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [state, dispatch] = useReducer(postReducer, INITIAL_STATE);
 
   let navigate = useNavigate();
   const params = useParams();
 
   useEffect(() => {
+    dispatch({ type: "FETCH_START" });
     const cancelToken = axios.CancelToken.source();
 
     axios
@@ -34,24 +35,24 @@ const DetailsPage = () => {
         }
       )
       .then((res) => {
+        dispatch({ type: "FETCH_SUCCESS" });
         setCoin(res.data);
       })
       .catch((err) => {
         if (axios.isCancel(err)) return;
 
+        dispatch({ type: "FETCH_ERROR" });
         console.log(err.message);
-        setError("Oops, please try again later!");
-      })
-      .finally(() => setIsLoading(false));
+      });
 
     return () => cancelToken.cancel();
   }, [params.id]);
 
   const date = new Date(coin.last_updated?.split("T")[0]);
 
-  if (isLoading) return <Loader />;
+  if (state.isLoading) return <Loader />;
 
-  if (error) return <Error message={error} />;
+  if (state.error) return <Error />;
 
   return (
     <motion.div
