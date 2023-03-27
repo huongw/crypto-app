@@ -12,7 +12,7 @@
 }
 
 .logo-color {
-  color: rgb(21, 172, 172);
+  color: rgb(0, 255, 255);
 }
 
 .logo svg {
@@ -41,7 +41,7 @@ ul {
 }
 
 li a.active {
-  color: rgb(21, 172, 172);
+  color: rgb(0, 255, 255);
   border-bottom: 2px solid;
 }
 
