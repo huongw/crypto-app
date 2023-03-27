@@ -1,12 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import { CoinsPage, DetailsPage } from "./index";
+import { Home, Details } from "./index";
 import { AnimatePresence } from "framer-motion";
 
 const Pages = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [currency, setCurrency] = useState("usd");
 
   return (
     <AnimatePresence mode="wait">
@@ -14,25 +13,22 @@ const Pages = () => {
         <Route
           path="/"
           element={
-            <CoinsPage
+            <Home
               isLoading={isLoading}
               setIsLoading={setIsLoading}
               setError={setError}
               error={error}
-              currency={currency}
-              setCurrency={setCurrency}
             />
           }
         />
         <Route
           path="/details/:id"
           element={
-            <DetailsPage
+            <Details
               isLoading={isLoading}
               setIsLoading={setIsLoading}
               setError={setError}
               error={error}
-              currency={currency}
             />
           }
         />

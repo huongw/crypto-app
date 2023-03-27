@@ -1,7 +1,7 @@
 import "./Info.css";
 import Chart from "../Chart/Chart";
 
-const Info = ({ coin, error, setError, currency }) => {
+const Info = ({ coin, error, setError }) => {
   return (
     <div className="details coin_info">
       <p className="coin_rank">Rank #{coin.market_cap_rank}</p>
@@ -12,24 +12,18 @@ const Info = ({ coin, error, setError, currency }) => {
           </div>
           <p className="coin_symbol">
             {"["}
-            {coin.symbol?.toUpperCase()}/{currency?.toUpperCase()}
-            {"]"}
+            {coin.symbol?.toUpperCase()}/USD{"]"}
           </p>
         </div>
         <div className="coin_price-wrapper">
           <span className="coin_price-title">Current Price</span>
           <p className="coin_price">
-            ${coin.market_data?.current_price?.[`${currency}`]?.toLocaleString()}
+            ${coin.market_data?.current_price?.usd.toLocaleString()}
           </p>
         </div>
       </div>
       <hr />
-      <Chart
-        coin={coin}
-        error={error}
-        setError={setError}
-        currency={currency}
-      />
+      <Chart coin={coin} error={error} setError={setError}/>
     </div>
   );
 };
