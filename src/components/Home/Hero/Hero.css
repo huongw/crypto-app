@@ -5,18 +5,11 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  background-image: url("../../../images/hero-img.png");
+  background-position: 50% 90%;
+  background-size: 40%;
+  background-repeat: no-repeat;
   position: relative;
-  padding-top: 10em;
-}
-
-.hero-section .img-wrapper {
-  max-width: 600px;
-  display: flex;
-  justify-content: center;
-}
-
-.hero-section img {
-  width: 90%;
 }
 
 .hero-section:before {
@@ -28,7 +21,8 @@
   height: 100%;
   background-image: url("../../../images/hero-bg.webp");
   z-index: -1;
-  opacity: 0.1;
+  opacity: 0.5;
+  background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -38,34 +32,22 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 5%;
+  height: 100%;
   z-index: -1;
-  opacity: 1;
-  background: #320534;
-  -webkit-filter: blur(80px);
+  opacity: 0.5;
+  background: #000;
+  -webkit-filter: blur(50px);
   filter: blur(50px);
 }
 
 .hero-section h1 {
   font-size: 3em;
-  padding: 0 1em;
 }
 
 .hero-section p {
-  margin: 1em auto 5em;
+  padding-bottom: 30em;
+  margin-top: 1em;
   text-shadow: 5px 5px 15px #000;
   max-width: 1000px;
   text-align: center;
-  width: 90%;
-}
-
-@media only screen and (max-width: 1050px) {
-  .hero-section p {
-    margin-bottom: 2em;
-  }
-}
-@media only screen and (max-width: 400px) {
-  .hero-section h1 {
-    font-size: 2em;
-  }
 }

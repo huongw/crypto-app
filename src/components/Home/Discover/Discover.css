@@ -1,22 +1,8 @@
 .about-coins-section {
-  min-height: 80vh;
+  min-height: 50vh;
   gap: 5em;
   padding: 5em 0;
   flex-direction: row-reverse;
-  position: relative;
-}
-.about-coins-section:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-image: url("../../../images/bg-img.png");
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  opacity: .8;
-  background-repeat: no-repeat;
-  background-position: 60% 50%;
 }
 
 .bitcoin {
@@ -35,7 +21,6 @@
   align-items: flex-start;
   justify-content: center;
   gap: 1em;
-  position: relative;
 }
 
 .about-coins-wrapper a {
@@ -66,20 +51,4 @@
 
 .coin.percentage {
   color: green;
-}
-
-@media only screen and (max-width: 1050px) {
-  .about-coins-wrapper a,
-  .about-coins-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  .about-coins-section {
-    flex-direction: column;
-  }
-  .coin-wrapper {
-    flex-direction: row;
-  }
 }

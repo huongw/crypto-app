@@ -23,7 +23,6 @@
   min-height: 230px;
   position: relative;
   padding: 1em;
-  width: 300px !important;
 }
 
 .flex-wrapper {
@@ -52,6 +51,6 @@
   position: absolute;
   color: rgb(188, 188, 188);
   font-size: 0.8em;
-  bottom: 0.5em;
+  bottom: .5em;
   left: 1em;
 }

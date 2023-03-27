@@ -24,3 +24,19 @@
   align-items: center;
   justify-content: center;
 }
+
+@media only screen and (max-width: 1050px) {
+  .about-coins-wrapper a,
+  .about-coins-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .about-coins-section {
+    flex-direction: column;
+  }
+  .coin-wrapper {
+    flex-direction: row;
+  }
+}
