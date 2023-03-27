@@ -19,7 +19,6 @@ const DailyNewsItem = ({ item }) => {
             <img
               src={item?.image?.thumbnail?.contentUrl}
               style={{ maxWidth: "100px" }}
-              alt={item?.name}
             />
           )}
           <h3>{item?.name}</h3>
