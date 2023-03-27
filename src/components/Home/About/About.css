@@ -33,10 +33,6 @@
   font-style: italic;
   font-size: 2em;
 }
-.about-title .logo-color {
-  color: aqua;
-}
-
 .about-section div {
   flex: 1;
 }

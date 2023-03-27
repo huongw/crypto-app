@@ -27,9 +27,6 @@
 .hero-section h1 {
   font-size: 3em;
 }
-.hero-section .logo-color {
-  color: aqua;
-}
 .hero-section p {
   margin: 1em auto 5em;
   text-shadow: 5px 5px 15px #000;
