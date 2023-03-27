@@ -111,7 +111,7 @@ img {
 }
 
 .negative {
-  color: #ff1900 !important;
+  color: #ff1900;
 }
 
 @media only screen and (max-width: 800px) {

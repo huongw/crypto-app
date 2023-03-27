@@ -1,20 +1,20 @@
 .button-container {
   display: flex;
+  border-radius: 8px;
   overflow: hidden;
   width: max-content;
+  border: 1px solid #000;
+  border-right: 0;
 }
 
 .chart button {
   padding: 0.5em 0.8em;
   font-size: 0.9em;
   text-decoration: none;
-  color: #fff;
-  border-right: 1px solid gray;
+  background-color: #fefefe;
+  color: #1c1b1b;
+  border-right: 1px solid #000;
   transition: 0.3s linear;
-}
-
-.chart button:last-child {
-  border-right: 0;
 }
 
 .chart h2 {
@@ -31,7 +31,7 @@
 }
 
 .chart button.active {
-  color: rgb(122, 14, 148);
+  background-color: rgb(188, 188, 188);
 }
 
 @media only screen and (max-width: 400px) {

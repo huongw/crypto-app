@@ -15,10 +15,10 @@ h3 {
   color: rgb(255, 0, 234);
 }
 
-.trending-container {
+.details.trending {
   padding: 1em 0;
-  max-width: 2000px;
-  margin: 5em auto;
+  min-height: 20vh;
+
 }
 
 .img-wrapper.trending {

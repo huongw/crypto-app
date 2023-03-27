@@ -19,15 +19,11 @@ a {
 .container {
   width: 95vw;
   max-width: 1300px;
-  margin: 5em auto 0;
+  margin: 10em auto 0;
 }
 
 .error {
   text-align: center;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 @media only screen and (max-width: 450px) {

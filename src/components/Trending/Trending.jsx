@@ -28,7 +28,7 @@ const Trending = () => {
   if (error) return <Error message={error} />;
 
   return (
-    <div className="trending-container">
+    <div className="details trending">
       <h3>
         Top trending coins searched by users{" "}
         <span className="grey-color">

@@ -18,7 +18,7 @@
 
 .stats.coin_date {
   margin: 0;
-  justify-content: flex-end;
+  text-align: right;
 }
 
 /* Info */
