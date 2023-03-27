@@ -15,7 +15,7 @@ const CoinsPage = () => {
 
   if (isLoading) return <Loader />;
 
-  if (error) return <Error message={error} />;
+  if (error) return <Error />;
 
   return (
     <div className="container">
