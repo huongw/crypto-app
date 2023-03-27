@@ -75,7 +75,7 @@ const Home = () => {
               <div className="img-wrapper">
                 <img src={coin.image} alt={coin.name} />
               </div>
-              <h4>{coin.name}</h4>
+              <h3>{coin.name}</h3>
               <p>${coin.current_price?.toLocaleString()}</p>
               <p
                 className={
