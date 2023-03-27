@@ -17,7 +17,7 @@ const NewsListItem = ({ item, newsImg }) => {
       </div>
       <p className="desc">{item?.description}</p>
       <span className="hours">
-        {hours} {hours > 1 || hours === 0 ? "hours" : "hour"} ago
+        {hours} {hours > 1 ? "hours" : "hour"} ago
       </span>
     </>
   );
