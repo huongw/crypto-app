@@ -22,8 +22,6 @@ const DetailsPage = () => {
   const params = useParams();
 
   useEffect(() => {
-    const cancelToken = axios.CancelToken.source();
-
     const coinURL = axios.get(
       `https://api.coingecko.com/api/v3/coins/${params.id}?tickers=false&community_data=false&developer_data=false&sparkline=false`
     );
@@ -41,14 +39,14 @@ const DetailsPage = () => {
         },
         headers: {
           "X-BingApis-SDK": "true",
-          "X-RapidAPI-Key": process.env.REACT_APP_NEWS_API_KEY,
+          "X-RapidAPI-Key":
+            process.env.REACT_APP_NEWS_API_KEY,
           "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
         },
       }
     );
     axios
       .all([coinURL, chartURL, newsURL], {
-        cancelToken: cancelToken.token,
         headers: {
           "Content-Type": "application/json",
         },
@@ -60,17 +58,10 @@ const DetailsPage = () => {
           setNews(res[2].data.value);
         })
       )
-      .catch((err) => {
-        if (axios.isCancel(err)) return;
-
-        console.log(err.message);
-        setError("Oops, please try again later!");
-      })
+      .catch((err) => setError("Oops, please try again later!"))
       .finally(() => {
         setIsLoading(false);
       });
-
-    return () => cancelToken.cancel();
   }, [params.id, day]);
 
   const options = { year: "numeric", month: "long", day: "numeric" };

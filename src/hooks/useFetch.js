@@ -8,22 +8,17 @@ const useFetch = (url) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const cancelToken = axios.CancelToken.source();
-
     axios
-      .get(url, { cancelToken: cancelToken.token })
+      .get(url)
       .then((res) => {
         setIsLoading(true);
         setData(res.data);
       })
       .catch((err) => {
-        if (axios.isCancel(err)) return;
         console.log(err.message);
         setError("Oops! Too many requests, please try again later.");
       })
       .finally(() => setIsLoading(false));
-
-    return () => cancelToken.cancel();
   }, []);
 
   return { data, error, isLoading };
