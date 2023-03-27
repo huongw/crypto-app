@@ -1,7 +1,7 @@
 .about-coins-section {
   min-height: 80vh;
   gap: 5em;
-  padding: 0 0 5em;
+  padding: 5em 0;
   flex-direction: row-reverse;
   position: relative;
 }
