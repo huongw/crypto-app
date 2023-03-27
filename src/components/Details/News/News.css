@@ -19,9 +19,8 @@
 }
 
 .news-container .swiper-slide {
-  background-color: #292a2d;
-  min-height: 230px;
-  position: relative;
+  background-color: #3c4145;
+  min-height: 200px;
   padding: 1em;
 }
 
@@ -38,19 +37,11 @@
 }
 
 .provider {
-  margin-left: 0.5em;
-  font-size: 0.7em;
+  margin-left: .5em;
+  font-size: .7em;
   color: rgb(188, 188, 188);
 }
 
 .flex-provider {
   align-items: center;
-}
-
-.hours {
-  position: absolute;
-  color: rgb(188, 188, 188);
-  font-size: 0.8em;
-  bottom: .5em;
-  left: 1em;
 }
