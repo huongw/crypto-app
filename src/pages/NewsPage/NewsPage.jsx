@@ -1,17 +1,16 @@
 import "./NewsPage.css";
 import axios from "axios";
-import { useEffect, useState, useReducer } from "react";
+import { useEffect, useState } from "react";
 import DailyNewsItem from "../../components/DailyNews/DailyNewsItem";
 import { Error, Loader } from "../";
-import { INITIAL_STATE, postReducer } from "../../postReducer";
 
 const NewsPage = () => {
   const [topNews, setTopNews] = useState([]);
   const [nftNews, setNftNews] = useState([]);
-  const [state, dispatch] = useReducer(postReducer, INITIAL_STATE);
+  const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    dispatch({ type: "FETCH_START" });
     const cancelToken = axios.CancelToken.source();
 
     const topNewsURL = axios.get(
@@ -41,23 +40,23 @@ const NewsPage = () => {
 
     Promise.all([topNewsURL, nftNewsURL])
       .then((res) => {
-        dispatch({ type: "FETCH_SUCCESS" });
         setTopNews(res[0].data.value);
         setNftNews(res[1].data.value);
       })
       .catch((err) => {
         if (axios.isCancel(err)) return;
 
-        dispatch({ type: "FETCH_ERROR" });
         console.log(err.message);
-      });
+        setError("Oops, there was an error! Please try again later.");
+      })
+      .finally(() => setIsLoading(false));
 
     return () => cancelToken.cancel();
   }, []);
 
-  if (state.isLoading) return <Loader />;
+  if (isLoading) return <Loader />;
 
-  if (state.error) return <Error />;
+  if (error) return <Error message={error} />;
 
   return (
     <div className="crypto-news container">

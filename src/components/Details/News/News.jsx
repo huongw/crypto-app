@@ -17,16 +17,19 @@ const News = () => {
 
   useEffect(() => {
     axios
-      .get(
-        "https://bing-news-search1.p.rapidapi.com/news/search?q=cryptocurrency+nft&safeSearch=Moderate&textFormat=Raw&freshness=Day",
-        {
-          headers: {
-            "X-BingApis-SDK": "true",
-            "X-RapidAPI-Key": process.env.REACT_APP_NEWS_API_KEY,
-            "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
-          },
-        }
-      )
+      .get("https://bing-news-search1.p.rapidapi.com/news/search", {
+        params: {
+          q: "cryptocurrency, nft",
+          safeSearch: "Moderate",
+          textFormat: "Raw",
+          freshness: "Day",
+        },
+        headers: {
+          "X-BingApis-SDK": "true",
+          "X-RapidAPI-Key": process.env.REACT_APP_NEWS_API_KEY,
+          "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
+        },
+      })
       .then((res) => setNews(res.data.value))
       .catch((err) => console.log(err.message));
   }, []);

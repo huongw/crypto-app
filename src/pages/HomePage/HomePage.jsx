@@ -1,17 +1,16 @@
 import { About, Discover, Hero, Trending } from "..";
 import "./HomePage.css";
 import { Loader } from "../";
-import { useEffect, useState, useReducer } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { INITIAL_STATE, postReducer } from "../../postReducer";
 
 const Home = () => {
   const [trending, setTrending] = useState([]);
   const [coins, setCoins] = useState([]);
-  const [state, dispatch] = useReducer(postReducer, INITIAL_STATE);
+  const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    dispatch({ type: "FETCH_START" });
     const cancelToken = axios.CancelToken.source();
 
     const coinsURL = axios.get(
@@ -28,27 +27,29 @@ const Home = () => {
       },
     })
       .then((res) => {
-        dispatch({ type: "FETCH_SUCCESS" });
         setCoins(res[0].data);
         setTrending(res[1].data);
       })
       .catch((err) => {
         if (axios.isCancel(err)) return;
 
-        dispatch({ type: "FETCH_ERROR" });
         console.log(err.message);
+        setError(true);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
 
     return () => cancelToken.cancel();
   }, []);
 
-  if (state.isLoading) return <Loader />;
+  if (isLoading) return <Loader />;
 
   return (
     <div className="home-page">
       <Hero />
       <About />
-      {!state.error && (
+      {!error && (
         <>
           <Discover coins={coins} />
           <Trending trending={trending} />
