@@ -1,6 +1,8 @@
+import { Error } from "../../pages";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import "./Trending.css";
+import useFetch from "../../hooks/useFetch";
 
 const settings = {
   perPage: 3,
@@ -18,7 +20,13 @@ const settings = {
   },
 };
 
-const Trending = ({ trending }) => {
+const Trending = () => {
+  const { data, error } = useFetch(
+    "https://api.coingecko.com/api/v3/search/trending"
+  );
+
+  if (error) return <Error message={error} />;
+
   return (
     <div className="trending-container">
       <h3>
@@ -28,7 +36,7 @@ const Trending = ({ trending }) => {
         </span>
       </h3>
       <Splide options={{ ...settings }}>
-        {trending.coins?.map((coin) => {
+        {data.coins?.map((coin) => {
           const coinItem = coin.item;
 
           return (

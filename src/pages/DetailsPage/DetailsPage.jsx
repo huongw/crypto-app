@@ -10,43 +10,28 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const DetailsPage = () => {
-  const [coin, setCoin] = useState({});
-  const [chartData, setChartData] = useState([]);
-  const [day, setDay] = useState(7);
-
+  const [value, setValue] = useState({});
   const [error, setError] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-
+  const [isLoading, setIsLoading] = useState(false);
+  
   let navigate = useNavigate();
   const params = useParams();
-
   useEffect(() => {
-    const coinURL = axios.get(
-      `https://api.coingecko.com/api/v3/coins/${params.id}?tickers=false&community_data=false&developer_data=false&sparkline=false`
-    );
-    const chartURL = axios.get(
-      `https://api.coingecko.com/api/v3/coins/${params.id}/market_chart?vs_currency=usd&days=${day}&interval=daily`
-    );
+    setIsLoading(true);
     axios
-      .all([coinURL, chartURL], {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-      .then(
-        axios.spread((...res) => {
-          setCoin(res[0].data);
-          setChartData(res[1].data.prices);
-        })
+      .get(
+        `https://api.coingecko.com/api/v3/coins/${params.id}?tickers=false&community_data=false&developer_data=false&sparkline=false`
       )
-      .catch((err) => setError("Oops, please try again later!"))
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, [params.id, day]);
+      .then((res) => setValue(res.data))
+      .catch((err) => {
+        console.log(err.message);
+        setError("Oops! Too many requests, please try again later.");
+      })
+      .finally(() => setIsLoading(false));
+  }, [params.id]);
 
   const options = { year: "numeric", month: "long", day: "numeric" };
-  const date = new Date(coin.last_updated?.split("T")[0]);
+  const date = new Date(value.last_updated?.split("T")[0]);
 
   if (isLoading) return <Loader />;
 
@@ -67,15 +52,15 @@ const DetailsPage = () => {
       <p className="coin_date">
         Last updated: {date.toLocaleDateString("en-US", options)}
       </p>
-      <h1 className="details details_name">{coin.name}</h1>
-      <Info coin={coin} chartData={chartData} setDay={setDay} day={day} />
-      <Stats coin={coin} />
-      <Table coin={coin} />
+      <h1 className="details details_name">{value.name}</h1>
+      <Info coin={value} error={error} setError={setError} />
+      <Stats coin={value} />
+      <Table coin={value} />
       <div className="details details_desc-wrapper">
-        <h2>What is {coin.name}?</h2>
+        <h2>What is {value.name}?</h2>
         <p
           dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(coin.description?.en),
+            __html: DOMPurify.sanitize(value.description?.en),
           }}
         ></p>
       </div>
