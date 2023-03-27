@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Trending } from "..";
 import "./HomePage.css";
 import { Error, Loader } from "../";
-import { BsArrowUpRight, BsArrowDownLeft } from "react-icons/bs";
+import { RxTriangleUp, RxTriangleDown } from "react-icons/rx";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -85,9 +85,9 @@ const Home = () => {
                 }
               >
                 {coin.market_cap_change_percentage_24h < 0 ? (
-                  <BsArrowDownLeft />
+                  <RxTriangleDown />
                 ) : (
-                  <BsArrowUpRight />
+                  <RxTriangleUp />
                 )}{" "}
                 {coin.market_cap_change_percentage_24h?.toFixed(1)}%
               </p>
