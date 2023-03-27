@@ -1,6 +1,6 @@
 import { About, Discover, Hero, Trending } from "..";
 import "./HomePage.css";
-import { Loader } from "../";
+import { Error, Loader } from "../";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -32,7 +32,7 @@ const Home = () => {
       )
       .catch((err) => {
         console.log(err.message);
-        setError(true);
+        setError("Oops, something went wrong! Please try again later.");
       })
       .finally(() => {
         setIsLoading(false);
@@ -41,16 +41,14 @@ const Home = () => {
 
   if (isLoading) return <Loader />;
 
+  if (error) return <Error message={error} />;
+
   return (
     <div className="home-page">
       <Hero />
       <About />
-      {!error && (
-        <>
-          <Discover coins={coins} />
-          <Trending trending={trending} />
-        </>
-      )}
+      <Discover coins={coins} />
+      <Trending trending={trending} />
     </div>
   );
 };
