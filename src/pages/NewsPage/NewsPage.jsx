@@ -16,7 +16,6 @@ const NewsPage = () => {
     const topNewsURL = axios.get(
       "https://bing-news-search1.p.rapidapi.com/news/search?q=cryptocurrency&count=5",
       {
-        cancelToken: cancelToken.token,
         headers: {
           "Content-Type": "application/json",
           "X-BingApis-SDK": "true",
@@ -28,7 +27,6 @@ const NewsPage = () => {
     const nftNewsURL = axios.get(
       "https://bing-news-search1.p.rapidapi.com/news/search?q=nft&count=5",
       {
-        cancelToken: cancelToken.token,
         headers: {
           "Content-Type": "application/json",
           "X-BingApis-SDK": "true",
@@ -38,7 +36,7 @@ const NewsPage = () => {
       }
     );
     axios
-      .all([topNewsURL, nftNewsURL])
+      .all([topNewsURL, nftNewsURL], { cancelToken: cancelToken.token })
       .then(
         axios.spread((...res) => {
           setTopNews(res[0].data.value);
@@ -46,7 +44,7 @@ const NewsPage = () => {
         })
       )
       .catch((err) => {
-        if (axios.isCancel(err)) return;
+        if (axios.isCancel(err)) return console.log("aborted");
 
         console.log(err.message);
         setError("Oops, there was an error! Please try again later.");
