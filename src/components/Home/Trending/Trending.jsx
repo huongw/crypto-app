@@ -8,6 +8,14 @@ const settings = {
   pagination: false,
   drag: "free",
   gap: "1em",
+  breakpoints: {
+    800: {
+      perPage: 2,
+    },
+    400: {
+      perPage: 1,
+    },
+  },
 };
 
 const Trending = ({ trending }) => {
