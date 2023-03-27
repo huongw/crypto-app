@@ -11,8 +11,6 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const cancelToken = axios.CancelToken.source();
-
     const coinsURL = axios.get(
       "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=6&page=1&sparkline=false"
     );
@@ -22,7 +20,6 @@ const Home = () => {
 
     axios
       .all([coinsURL, trendingURL], {
-        cancelToken: cancelToken.token,
         headers: {
           "Content-Type": "application/json",
         },
@@ -34,16 +31,12 @@ const Home = () => {
         })
       )
       .catch((err) => {
-        if (axios.isCancel(err)) return;
-
         console.log(err.message);
         setError(true);
       })
       .finally(() => {
         setIsLoading(false);
       });
-
-    return () => cancelToken.cancel();
   }, []);
 
   if (isLoading) return <Loader />;
