@@ -20,16 +20,19 @@ const Home = () => {
       "https://api.coingecko.com/api/v3/search/trending"
     );
 
-    Promise.all([coinsURL, trendingURL], {
-      cancelToken: cancelToken.token,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => {
-        setCoins(res[0].data);
-        setTrending(res[1].data);
+    axios
+      .all([coinsURL, trendingURL], {
+        cancelToken: cancelToken.token,
+        headers: {
+          "Content-Type": "application/json",
+        },
       })
+      .then(
+        axios.spread((...res) => {
+          setCoins(res[0].data);
+          setTrending(res[1].data);
+        })
+      )
       .catch((err) => {
         if (axios.isCancel(err)) return;
 

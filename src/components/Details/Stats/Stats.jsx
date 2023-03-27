@@ -2,14 +2,14 @@ import "./Stats.css";
 import formatNumber from "../../../helpers/formatNumber";
 import Hover from "./Hover";
 
-function formatDate(timestamp) {
-  const options = { year: "numeric", month: "long", day: "numeric" };
-  const date = new Date(timestamp?.split("T")[0]);
-
-  return date.toLocaleDateString("en-US", options);
-}
-
 const Stats = ({ coin }) => {
+  function formatDate(timestamp) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const date = new Date(timestamp?.split("T")[0]);
+
+    return date.toLocaleDateString("en-US", options);
+  }
+
   return (
     <div className="details">
       <h2>{coin.symbol?.toUpperCase()} Price Statistics</h2>
@@ -64,9 +64,7 @@ const Stats = ({ coin }) => {
               Max Supply = Theoretical maximum as coded`}
             />
           </h4>
-          {coin.market_data?.max_supply
-            ? "$" + coin.market_data?.max_supply?.toLocaleString()
-            : "--"}
+          {coin.market_data?.max_supply ? "$" + coin.market_data?.max_supply?.toLocaleString() : "--"}
         </div>
         <hr />
         <div className="stats stats_atlh">

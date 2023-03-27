@@ -1,25 +1,8 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
 import "./Chart.css";
 import SelectButton from "./SelectButton";
 import ChartLine from "./ChartLine";
 
-const Chart = ({ coin }) => {
-  const [chartData, setChartData] = useState([]);
-  const [day, setDay] = useState(7);
-
-  const params = useParams();
-
-  useEffect(() => {
-    axios
-      .get(
-        `https://api.coingecko.com/api/v3/coins/${params.id}/market_chart?vs_currency=usd&days=${day}&interval=daily`
-      )
-      .then((res) => setChartData(res.data.prices))
-      .catch((err) => console.log(err.message));
-  }, [params.id, day]);
-
+const Chart = ({ coin, chartData, setDay, day }) => {
   return (
     <div className="chart">
       <div className="chart-wrapper">
