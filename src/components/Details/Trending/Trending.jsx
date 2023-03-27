@@ -1,8 +1,9 @@
-import { Error } from "../../pages";
+import React, { useEffect, useState } from "react";
+import { Error } from "../../../pages";
+import axios from "axios";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import "./Trending.css";
-import useFetch from "../../hooks/useFetch";
 
 const settings = {
   perPage: 3,
@@ -20,10 +21,18 @@ const settings = {
   },
 };
 
-const Trending = () => {
-  const { data, error } = useFetch(
-    "https://api.coingecko.com/api/v3/search/trending"
-  );
+const Trending = ({ error, setError }) => {
+  const [trendingCoins, setTrendingCoins] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://api.coingecko.com/api/v3/search/trending")
+      .then((res) => setTrendingCoins(res.data.coins))
+      .catch((err) => {
+        console.log(err.message);
+        setError("Oops! Too many requests, please try again later.");
+      });
+  }, []);
 
   if (error) return <Error message={error} />;
 
@@ -36,7 +45,7 @@ const Trending = () => {
         </span>
       </h3>
       <Splide options={{ ...settings }}>
-        {data.coins?.map((coin) => {
+        {trendingCoins.map((coin) => {
           const coinItem = coin.item;
 
           return (

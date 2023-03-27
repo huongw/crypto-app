@@ -11,7 +11,7 @@ export { default as Error } from "../components/Error";
 
 export { default as DetailsPage } from "./DetailsPage/DetailsPage";
 export { default as Stats } from "../components/Details/Stats/Stats";
-export { default as Trending } from "../components/Trending/Trending";
+export { default as Trending } from "../components/Details/Trending/Trending";
 export { default as Table } from "../components/Details/Table/Table";
 
 export { default as HomePage } from "./HomePage/HomePage";
