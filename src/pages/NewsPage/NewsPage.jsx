@@ -12,29 +12,20 @@ const NewsPage = () => {
 
   useEffect(() => {
     const topNewsURL = axios.get(
-      "https://bing-news-search1.p.rapidapi.com/news/search?q=cryptocurrency&count=5",
-      {
-        headers: {
-          "Content-Type": "application/json",
-          "X-BingApis-SDK": "true",
-          "X-RapidAPI-Key": process.env.REACT_APP_NEWS_API_KEY,
-          "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
-        },
-      }
+      "https://bing-news-search1.p.rapidapi.com/news/search?q=cryptocurrency&count=5"
     );
     const nftNewsURL = axios.get(
-      "https://bing-news-search1.p.rapidapi.com/news/search?q=nft&count=5",
-      {
+      "https://bing-news-search1.p.rapidapi.com/news/search?q=nft&count=5"
+    );
+    axios
+      .all([topNewsURL, nftNewsURL], {
         headers: {
           "Content-Type": "application/json",
           "X-BingApis-SDK": "true",
           "X-RapidAPI-Key": process.env.REACT_APP_NEWS_API_KEY,
           "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
         },
-      }
-    );
-    axios
-      .all([topNewsURL, nftNewsURL])
+      })
       .then(
         axios.spread((...res) => {
           setTopNews(res[0].data.value);
