@@ -1,0 +1,42 @@
+.home-page {
+  background: rgb(122, 13, 204);
+  background: -moz-radial-gradient(
+    circle,
+    rgba(122, 13, 204, 0.6362745781906513) 0%,
+    rgba(27, 47, 130, 0.6838936258096988) 100%
+  );
+  background: -webkit-radial-gradient(
+    circle,
+    rgba(122, 13, 204, 0.6362745781906513) 0%,
+    rgba(27, 47, 130, 0.6838936258096988) 100%
+  );
+  background: radial-gradient(
+    circle,
+    rgba(122, 13, 204, 0.6362745781906513) 0%,
+    rgba(27, 47, 130, 0.6838936258096988) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7a0dcc",endColorstr="#1b2f82",GradientType=1);
+}
+
+.about-coins-section,
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 1050px) {
+  .about-coins-wrapper a,
+  .about-coins-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .about-coins-section {
+    flex-direction: column;
+  }
+  .coin-wrapper {
+    flex-direction: row;
+  }
+}

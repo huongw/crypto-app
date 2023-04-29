@@ -1,6 +1,10 @@
 .details_container {
   max-width: 1000px;
+<<<<<<< HEAD:src/pages/Details/Details.css
   margin: auto;
+=======
+  margin: 10em auto 5em;
+>>>>>>> parent of 3d37f17... complete home page CSS and responsiveness for news section:src/pages/DetailsPage/DetailsPage.css
 }
 
 .details {

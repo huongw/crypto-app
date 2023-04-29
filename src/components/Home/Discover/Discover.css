@@ -1,0 +1,54 @@
+.about-coins-section {
+  min-height: 50vh;
+  gap: 5em;
+  padding: 5em 0;
+  flex-direction: row-reverse;
+}
+
+.bitcoin {
+  color: #f7931a;
+}
+.ethereum {
+  color: #8890b0;
+}
+.tether {
+  color: #019696;
+}
+
+.about-coins-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1em;
+}
+
+.about-coins-wrapper a {
+  background-color: rgb(122, 14, 148);
+  border-radius: 0 10px 0 10px;
+  padding: 1em;
+}
+
+.about-coins-section .coin-wrapper {
+  width: 90%;
+  flex-wrap: wrap;
+  max-width: 400px;
+}
+
+.about-coins-section .coin-wrapper .coin-row {
+  flex: 1 1 100px;
+  min-height: 150px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  color: #000;
+  font-size: 0.9em;
+}
+
+.coin.percentage {
+  color: green;
+}

@@ -1,0 +1,57 @@
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2em;
+  font-size: 1em;
+  font-family: "Roboto", sans-serif;
+}
+
+.logo {
+  flex: 1;
+}
+
+.logo-color {
+  color: rgb(155, 30, 187);
+}
+
+.logo svg {
+  font-size: 1.5em;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  min-height: 7vh;
+  padding: 1em;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: bold;
+}
+
+li a.active {
+  color: rgb(155, 30, 187);
+  border-bottom: 2px solid;
+}
+
+@media only screen and (max-width: 650px) {
+  .nav-bar {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  ul {
+    width: 100%;
+  }
+}

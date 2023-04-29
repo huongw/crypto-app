@@ -1,0 +1,17 @@
+.about-section {
+  padding: 5em;
+  gap: 2em;
+  min-height: 100vh;
+}
+.about-title {
+  text-transform: capitalize;
+  font-style: italic;
+  font-size: 2em;
+}
+.about-section div {
+  flex: 1;
+}
+
+.about-section p {
+  margin: .5em 0;
+}
